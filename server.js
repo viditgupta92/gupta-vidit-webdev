@@ -12,4 +12,13 @@ require ("./test/app.js")(app);
 
 var port = process.env.PORT || 3000;
 
+var connectionString = 'mongodb://127.0.0.1:27017/test';
+if(process.env.MLAB_USERNAME) {
+    connectionString = process.env.MLAB_USERNAME + ":" +
+        process.env.MLAB_PASSWORD + "@ds163698.mlab.com" +
+        process.env.MLAB_HOST + ':63698' +
+        process.env.MLAB_PORT + '/heroku_jxcv0hvw' +
+        process.env.MLAB_APP_NAME;
+}
+
 app.listen(port);
