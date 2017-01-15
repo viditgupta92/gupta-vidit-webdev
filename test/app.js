@@ -62,9 +62,9 @@ module.exports = function(app)
             );
     }
 
-
-    var connectionString = 'mongodb://127.0.0.1:27017/test';
-    if(process.env.MONGODB_URI){
-        connectionString = process.env.MONGODB_URI
-    }
+    //
+    // var connectionString = 'mongodb://127.0.0.1:27017/test';
+    // if(process.env.MONGODB_URI){
+    //     connectionString = process.env.MONGODB_URI
+    // }
 };
