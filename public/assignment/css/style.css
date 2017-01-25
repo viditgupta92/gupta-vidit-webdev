@@ -4,4 +4,18 @@ input.form-control {
 
 body {
     padding-top: 36px;
+    font-family: 'Oswald', sans-serif;
+    background-color:#b9def0;
+}
+
+.navbar-default {
+    background-color: darkturquoise;
+    font-family:Cambria;
+    font-size: large;
+}
+
+.navbar-brand{
+    font-size: x-large;
+    font-family: 'Oswald', sans-serif;
+
 }
