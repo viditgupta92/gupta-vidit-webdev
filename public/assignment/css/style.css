@@ -4,6 +4,7 @@ input.form-control {
 
 body {
     padding-top: 36px;
+    padding-bottom: 55px;
     font-family: 'Oswald', sans-serif;
     background-color:#b9def0;
 }
@@ -23,4 +24,8 @@ body {
 h1 {
     color:white;
     font-family: Georgia,serif;
+}
+
+#login{
+    text-align: center;
 }

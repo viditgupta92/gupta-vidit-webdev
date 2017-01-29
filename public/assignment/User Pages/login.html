@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
-            <h1 style="text-align: center">Register</h1>
-        </nav>
-        <br>
-        <br>
-        <br>
+<nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
+    <h1 id="login">Login</h1>
+</nav>
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <form>
         <label for="username">Username</label>
         <input id="username"
                type="text"
@@ -25,15 +26,12 @@
                type="password"
                class="form-control"
                placeholder="password"/>
-        <label for="very password">Confirm Password</label>
-        <input id="very password"
-               type="password"
-               class="form-control"
-               placeholder="very password"/>
+
         <a class="btn btn-primary btn-block"
-           href="profile.html">Register</a>
-        <a class="btn btn-danger  btn-block"
-           href="login.html">Cancel</a>
-    </div>
+           href="profile.html">Login</a>
+        <a class="btn btn-success btn-block"
+           href="register.html">Register</a>
+    </form>
+</div>
 </body>
 </html>

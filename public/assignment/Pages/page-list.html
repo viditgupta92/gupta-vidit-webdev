@@ -4,32 +4,35 @@
     <meta charset="UTF-8">
     <title>Page List</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+    <link href="../../../bootstrap/css/bootstrap.css">
 </head>
 <body>
-<nav class="navbar  navbar-default navbar-fixed-top">
-    <div class="website-list">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-left">
+            <a href="../Website%20Pages/website-list.html" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left">
+                </span>
+            </a>
+        </div>
         <div class="navbar-header">
-            <p class="navbar-text">
-                <a href="website-list.html" class="navbar-link">
-                        <span class="glyphicon glyphicon-chevron-left pull-left">
-                        </span>
-                </a>
-            </p>
             <a class="navbar-brand" href="#">
                 Pages
             </a>
-            <p class="navbar-text">
-                <a href="page-new.html" class="navbar-link">
-                        <span class="glyphicon glyphicon-plus pull-right">
-                        </span>
-                </a>
-            </p>
+        </div>
+        <div class="navbar-text pull-right">
+            <a href="page-new.html" class="navbar-link">
+                <span class="glyphicon glyphicon-plus">
+                </span>
+            </a>
         </div>
     </div>
 </nav>
 
-<div class="list-group">
+<div class="container-fluid list-group">
+    <br>
     <br>
     <br>
     <a href="page-edit.html" class="list-group-item">
@@ -60,13 +63,11 @@
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-            <div class="col-xs-12 text-right">
-                <a href="profile.html">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </div>
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="../User%20Pages/profile.html">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </div>
     </div>
 </nav>
