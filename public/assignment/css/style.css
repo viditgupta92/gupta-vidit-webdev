@@ -1,6 +1,6 @@
 input.form-control {
-    margin-bottom: 5px;
-}
+     margin-bottom: 5px;
+ }
 
 body {
     margin-left: 20px;
@@ -16,10 +16,6 @@ body {
     font-size: large;
 }
 
-.navbar-brand{
-    font-size: x-large;
-    font-family:Georgia,serif;
-}
 
 .vg-h1 {
     color:white;
@@ -57,7 +53,24 @@ head#assignment-home{
     text-align: center;
 }
 
-.navbar-inverse{
+.navbar-inverse .navbar-brand{
     color:white;
     font-family: Georgia,serif;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: cornflowerblue;
+    font-family: Georgia, serif;
+}
+
+.navbar .glyphicon{
+    color: white;
+}
+
+.glyphicon:hover{
+    color: cornflowerblue;
+}
+
+.a{
+    text-decoration: none;
 }
