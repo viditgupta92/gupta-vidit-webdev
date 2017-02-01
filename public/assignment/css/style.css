@@ -11,14 +11,14 @@ body {
 }
 
 .navbar-default {
-    background-color: darkturquoise;
-    font-family:Cambria;
+    background-color:darkturquoise;
+    font-family: 'Oswald', sans-serif;
     font-size: large;
 }
 
 .navbar-brand{
-    font-size: x-large;
-    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+    font-family:"Oswald";
 }
 
 .vg-h1 {
