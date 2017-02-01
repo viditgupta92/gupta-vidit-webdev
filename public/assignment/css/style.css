@@ -17,8 +17,8 @@ body {
 }
 
 .navbar-brand{
-    font-size: xx-large;
-    font-family:"Oswald";
+    font-size: x-large;
+    font-family:Georgia,serif;
 }
 
 .vg-h1 {
@@ -55,4 +55,9 @@ head#assignment-home{
 
 .vg-header{
     text-align: center;
+}
+
+.navbar-inverse{
+    color:white;
+    font-family: Georgia,serif;
 }
