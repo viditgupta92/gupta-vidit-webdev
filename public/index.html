@@ -4,34 +4,31 @@
     <meta charset="UTF-8">
     <title>Vidit Gupta's Web Development Home Page</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../bootstrap/css/bootstrap.css"/>
     <link href="assignment/css/style.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 </head>
 <body>
-    <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
-        <h1 style="text-align: center">Web Development Home Page</h1>
+    <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top vg-header">
+        <h1 class="vg-h1">Web Development Home Page</h1>
     </nav>
-    <br>
-    <h2> Vidit Gupta</h2>
-    <img src="Profile%20Pic.jpg" width="250">.
-    <p>
-        This page contains all the activities for web development course.
-    </p>
-
-    <h2>Links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/index.html">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/viditgupta92/gupta-vidit-webdev">Your public repository at GitHub.com</a>
-        </li>
-    </ul>
+    <div class="container-fluid vg-container-body">
+        <h1> Vidit Gupta</h1>
+        <div>
+            <img class="img-responsive" src="Profile%20Pic.jpg" width="250">.
+        </div>
+        <p>
+            This page contains all the activities for web development course.
+        </p>
+        <nav class="navbar-brand">Links</nav>
+    </div>
+    <div class="container-fluid">
+        <a href="project/index.html" class="list-group-item list-group-item-success">Project</a>
+        <a href="assignment/index.html" class="list-group-item list-group-item-info">Assignment</a>
+        <a href="test/index.html" class="list-group-item list-group-item-warning">Test MongoDB</a>
+        <a href="https://github.com/viditgupta92/gupta-vidit-webdev" class="list-group-item list-group-item-danger">
+            Your public repository at GitHub.com
+        </a>
+    </div>
 </body>
 </html>
