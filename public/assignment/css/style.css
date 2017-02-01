@@ -34,7 +34,7 @@ body {
 
 .vg-toolbar{
     position: absolute;
-    right: 15px;
+    right: 25px;
     background-color: white;
     padding-left: 5px;
     padding-bottom: 5px;
@@ -54,6 +54,10 @@ head#assignment-home{
     text-align: center;
 }
 
+.vg-head{
+    margin-right: 10px;
+}
+
 .navbar-inverse .navbar-brand{
     color:white;
     font-family: Georgia,serif;
@@ -68,6 +72,7 @@ head#assignment-home{
     color: white;
 }
 
+
 .glyphicon:hover{
     color: cornflowerblue;
 }
@@ -81,7 +86,7 @@ li a:hover{
 }
 
 .vg-form{
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 .vg-col{
@@ -90,4 +95,8 @@ li a:hover{
 
 .vg-container-fluid{
     padding-top: 15px;
+}
+
+.vg-list-group{
+    padding-left: 10px;
 }
