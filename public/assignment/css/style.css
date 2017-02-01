@@ -3,9 +3,10 @@ input.form-control {
  }
 
 body {
-    margin-left: 20px;
-    padding-top: 36px;
-    padding-bottom: 55px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     font-family: 'Oswald', sans-serif;
     background-color:#b9def0;
 }
@@ -71,6 +72,22 @@ head#assignment-home{
     color: cornflowerblue;
 }
 
-.a{
+li a:hover{
     text-decoration: none;
+}
+
+.vg-body{
+    margin-left: 0px;
+}
+
+.vg-form{
+    padding-top: 30px;
+}
+
+.vg-col{
+    padding-top: 15px;
+}
+
+.vg-container-fluid{
+    padding-top: 15px;
 }
