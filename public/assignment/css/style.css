@@ -9,12 +9,12 @@ body {
     padding-bottom: 40px;
     font-family: 'Oswald', sans-serif;
     background-color:#b9def0;
-    top:0px;
-    left:0px;
-    right:0px;
-    bottom:0px;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
     position: absolute;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .navbar-default {
@@ -88,7 +88,7 @@ li a:hover{
 }
 
 .vg-body{
-    margin-left: 0px;
+    margin-left:0px;
 }
 
 .vg-form{
