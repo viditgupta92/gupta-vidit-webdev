@@ -69,6 +69,10 @@ head#assignment-home{
     margin-right: 10px;
 }
 
+.vg-glyph{
+    margin-right: 30px;
+}
+
 .navbar-inverse .navbar-brand{
     color:white;
     font-family: Georgia,serif;
@@ -114,10 +118,10 @@ li a:hover{
 }
 
 .vg-list-head{
-    margin-right: 10px;
+    margin-right: 2px;
 }
 
-img{
+img#profile{
     width: auto ;
     max-width: 100% ;
     height: auto ;
