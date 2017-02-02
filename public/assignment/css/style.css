@@ -58,7 +58,7 @@ head#assignment-home{
 }
 
 .vg-container-body{
-    padding-top: 30px;
+    padding-top: 60px;
 }
 
 .vg-header{
@@ -115,4 +115,10 @@ li a:hover{
 
 .vg-list-head{
     margin-right: 10px;
+}
+
+img{
+    width: auto ;
+    max-width: 100% ;
+    height: auto ;
 }
