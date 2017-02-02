@@ -9,6 +9,12 @@ body {
     padding-bottom: 40px;
     font-family: 'Oswald', sans-serif;
     background-color:#b9def0;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    position: absolute;
+    overflow: scroll;
 }
 
 .navbar-default {
