@@ -9,14 +9,18 @@ body {
     padding-bottom: 40px;
     font-family: 'Oswald', sans-serif;
     background-color:#b9def0;
+
+}
+.vg-container{
+    position: absolute;
     top:0;
     left:0;
     right:0;
     bottom:0;
-    position: absolute;
+    margin-top: 30px;
+    margin-bottom: 30px;
     overflow-y: auto;
 }
-
 .navbar-default {
     background-color:darkturquoise;
     font-family: 'Oswald', sans-serif;
