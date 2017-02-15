@@ -16,20 +16,20 @@
             { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
         ];
 
-        this.findAllWidgets = findAllWidgets;
-        this.createWidget = createWidget;
-        this.findWidgetByPageId = findWidgetByPageId;
-        this.findWidgetById = findWidgetById;
-        this.updateWidget = updateWidget;
-        this.deleteWidget = deleteWidget;
+        var api = {
+            "createWidget": createWidget,
+            "findWidgetByPageId": findWidgetByPageId,
+            "findWidgetById": findWidgetById,
+            "updateWidget": updateWidget,
+            "deleteWidget": deleteWidget,
+            "findAllWidgets": findAllWidgets
+        };
+        return api;
 
-        
         function createWidget(pageId, widget) {
-            
-        }
-
-        function findAllWidgets(pageId) {
-            return widgets;
+                widget.pageId = pageId;
+                widget._id = (new Date()).getTime();
+                widgets.push(widget);
         }
 
         function findWidgetByPageId(pageId) {
@@ -54,7 +54,6 @@
             for(var w in widgets){
                 var widget = widgets[w]
                 if(widgets[w]._id === widgetId){
-                    return angular.up(widgets[w]);
                 }
             }
             return null;
@@ -66,6 +65,10 @@
                     widgets.splice(w,1);
                 }
             }
+        }
+
+        function findAllWidgets(pageId) {
+            return widgets;
         }
     }
 })();

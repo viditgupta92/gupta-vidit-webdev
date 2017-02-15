@@ -11,11 +11,10 @@
             ];
             var api = {
                 "createPage": createPage,
-                "updatePage": updatePage,
-                "deletePage": deletePage,
-                "findPageById": findPageById,
                 "findPageByWebsiteId": findPageByWebsiteId,
-                "findAllPagesForWebsite": findAllPagesForWebsite
+                "findPageById": findPageById,
+                "updatePage": updatePage,
+                "deletePage": deletePage
             };
             return api;
 
@@ -57,16 +56,6 @@
                         pages.splice(p,1);
                     }
                 }
-            }
-
-            function findAllPagesForWebsite(websiteId) {
-                var page = []
-                for(var p in pages){
-                    if(pages[p].websiteId === websiteId){
-                        page.push(pages[p]);
-                    }
-                }
-                return page;
             }
         }
 })();

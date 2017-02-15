@@ -15,8 +15,8 @@
             "findUserById": findUserById,
             "findUserByUsername": findUserByUsername,
             "findUserByCredentials": findUserByCredentials,
-            "updateUser": updateUser//,
-            //"deleteUser": deleteUser
+            "updateUser": updateUser,
+            "deleteUser": deleteUser
         };
         return api;
 
@@ -65,6 +65,14 @@
                 }
             }
             return null;
+        }
+
+        function deleteUser(userId) {
+            for(var u in users){
+                if(users[u]._id === userId){
+                    users.splice(w,1);
+                }
+            }
         }
     }
 })();

@@ -11,7 +11,7 @@
         vm.createPage = createPage;
 
         function init() {
-            vm.pages = PageService.findAllPagesForWebsite(vm.websiteId);
+            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
         }
 
         init();

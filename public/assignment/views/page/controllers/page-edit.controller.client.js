@@ -13,7 +13,7 @@
         vm.deletePage = deletePage;
 
         function init() {
-            vm.pages = PageService.findAllPagesForWebsite(vm.websiteId);
+            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
             vm.page = PageService.findPageById(vm.pageId);
         }
 
