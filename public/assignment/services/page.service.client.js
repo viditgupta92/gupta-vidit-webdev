@@ -14,7 +14,8 @@
                 "updatePage": updatePage,
                 "deletePage": deletePage,
                 "findPageById": findPageById,
-                "findPageByWebsiteId": findPageByWebsiteId
+                "findPageByWebsiteId": findPageByWebsiteId,
+                "findAllPagesForWebsite": findAllPagesForWebsite
             };
             return api;
 
@@ -56,6 +57,16 @@
                         pages.splice(p,1);
                     }
                 }
+            }
+
+            function findAllPagesForWebsite(websiteId) {
+                var page = []
+                for(var p in pages){
+                    if(pages[p].websiteId === websiteId){
+                        page.push(pages[p]);
+                    }
+                }
+                return page;
             }
         }
 })();

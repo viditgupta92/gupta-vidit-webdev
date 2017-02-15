@@ -13,6 +13,7 @@
         vm.deletePage = deletePage;
 
         function init() {
+            vm.pages = PageService.findAllPagesForWebsite(vm.websiteId);
             vm.page = PageService.findPageById(vm.pageId);
         }
 
@@ -20,7 +21,7 @@
 
         function deletePage() {
             PageService.deletePage(vm.pageId);
-            $location.url("/user/"+vm.userId+"/website"+vm.websiteId+"/page");
+            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
         }
     }
 })();
