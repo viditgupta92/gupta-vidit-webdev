@@ -46,11 +46,11 @@
                 return null;
             }
 
-            function updateWebsite(websiteId,name,description) {
+            function updateWebsite(websiteId,website) {
                 for(var w in websites){
                     if(websites[w]._id === websiteId){
-                        websites[w].name = name;
-                        websites[w].description = description;
+                        websites[w].name = website.name;
+                        websites[w].description = website.description;
                     }
                 }
             }

@@ -9,7 +9,7 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
 
-
+        vm.updatePage = updatePage;
         vm.deletePage = deletePage;
 
         function init() {
@@ -18,6 +18,11 @@
         }
 
         init();
+
+        function updatePage(page) {
+            PageService.updatePage(vm.pageId,page);
+            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+        }
 
         function deletePage() {
             PageService.deletePage(vm.pageId);
