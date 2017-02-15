@@ -2,7 +2,7 @@
     <div class="row container-fluid">
         <div class="col-sm-4 ">
             <div class="navbar-text pull-left hidden-xs">
-                <a href="website-list.view.client.html">
+                <a href="#/user/{{model.userId}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -14,19 +14,19 @@
             </div>
 
             <div class="navbar-text pull-right hidden-xs vg-glyph">
-                <a href="website-new.view.client.html">
+                <a href="#/user/{{model.userId}}/website/new">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
         </div>
         <div class="col-sm-8">
             <div class="navbar-text pull-left visible-xs">
-                <a href="website-list.view.client.html">
+                <a href="#/user/{{model.userId}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a href="website-list.view.client.html">
+                <a ng-click="model.updateWebsite(websiteId,website.name,website.description)">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -92,7 +92,7 @@
 <nav class="navbar navbar-inverse bg-inverse navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="../User%20Pages/profile.view.client.html">
+            <a href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

@@ -14,6 +14,7 @@
             ];
             var api = {
                 "createWebsite": createWebsite,
+                "updateWebsite": updateWebsite,
                 "deleteWebsite": deleteWebsite,
                 "findWebsiteById": findWebsiteById,
                 "findAllWebsitesForUser": findAllWebsitesForUser
@@ -24,6 +25,15 @@
                 website.developerId = userId;
                 website._id = (new Date()).getTime();
                 websites.push(website);
+            }
+
+            function updateWebsite(websiteId,name,description) {
+                for(var w in websites){
+                    if(websites[w]._id === websiteId){
+                        websites[w].name = name;
+                        websites[w].description = description;
+                    }
+                }
             }
 
             function deleteWebsite(websiteId) {

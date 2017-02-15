@@ -4,13 +4,6 @@
         .service("WidgetService", WidgetService);
 
     function WidgetService() {
-        this.findAllWidgets = findAllWidgets;
-        this.findWidgetById = findWidgetById;
-        
-        function  findAllWidgets(pageId) {
-            return widgets;
-        }
-        
         var widgets = [
             { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
             { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -22,6 +15,13 @@
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
             { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
         ];
+
+        this.findAllWidgets = findAllWidgets;
+        this.findWidgetById = findWidgetById;
+        
+        function  findAllWidgets(pageId) {
+            return widgets;
+        }
 
         function findWidgetById(widgetId) {
             for(var w in widgets){

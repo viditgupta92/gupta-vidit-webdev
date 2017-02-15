@@ -1,13 +1,13 @@
 <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
     <div class="container-fluid vg-head">
         <div class="navbar-text pull-right">
-            <a href="page-list.view.client.html" class="navbar-link">
+            <a ng-click="model.updatePage()" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
             </a>
         </div>
         <div class="navbar-text pull-left">
-            <a href="page-list.view.client.html" class="navbar-link">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
               <span class="glyphicon glyphicon-chevron-left">
               </span>
             </a>
@@ -30,15 +30,14 @@
         <label for="description">Title</label>
         <input ng-model="model.page.description" type="text" class="form-control" id="description" placeholder="Page Title">
     </div>
-    <a class="btn btn-danger btn-block"
-       href="page-list.view.client.html">Delete</a>
+    <a ng-click="model.deletePage()" class="btn btn-danger btn-block">Delete</a>
 </div>
 
 
 <nav class="navbar navbar-inverse bg-inverse navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="/user/{{model.userId}}">
+            <a href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

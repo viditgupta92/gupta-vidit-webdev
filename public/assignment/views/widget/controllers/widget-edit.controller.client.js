@@ -12,7 +12,8 @@
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
 
         function init() {
-            vm.widgets = WidgetService;
+            vm.widgets = WidgetService.findAllWidgets(vm.pageId);
+            vm.widget = WidgetService.findWidgetById(vm.widgetId);
         }
         init();
 

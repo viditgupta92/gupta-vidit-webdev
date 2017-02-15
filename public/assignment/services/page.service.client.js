@@ -11,6 +11,7 @@
             ];
             var api = {
                 "createPage": createPage,
+                "updatePage": updatePage,
                 "deletePage": deletePage,
                 "findPageById": findPageById,
                 "findPageByWebsiteId": findPageByWebsiteId
@@ -56,8 +57,5 @@
                     }
                 }
             }
-
-
-            
         }
 })();
