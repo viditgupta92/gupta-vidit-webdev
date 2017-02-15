@@ -17,10 +17,28 @@
         ];
 
         this.findAllWidgets = findAllWidgets;
+        this.createWidget = createWidget;
+        this.findWidgetByPageId = findWidgetByPageId;
         this.findWidgetById = findWidgetById;
+        this.updateWidget = updateWidget;
+        this.deleteWidget = deleteWidget;
+
         
-        function  findAllWidgets(pageId) {
+        function createWidget(pageId, widget) {
+            
+        }
+
+        function findAllWidgets(pageId) {
             return widgets;
+        }
+
+        function findWidgetByPageId(pageId) {
+            for(var w in widgets){
+                if(widgets[w].pageId === pageId){
+                    return angular.copy(widgets[w]);
+                }
+            }
+            return null;
         }
 
         function findWidgetById(widgetId) {
@@ -30,6 +48,24 @@
                 }
             }
             return null;
+        }
+
+        function updateWidget(widgetId, newWidget) {
+            for(var w in widgets){
+                var widget = widgets[w]
+                if(widgets[w]._id === widgetId){
+                    return angular.up(widgets[w]);
+                }
+            }
+            return null;
+        }
+
+        function deleteWidget(widgetId) {
+            for(var w in widgets){
+                if(widgets[w]._id === widgetId){
+                    widgets.splice(w,1);
+                }
+            }
         }
     }
 })();
