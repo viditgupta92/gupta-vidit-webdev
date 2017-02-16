@@ -37,7 +37,7 @@
 
         function createWidget(newWidget) {
             var widget = WidgetService.createWidget(vm.pageId, newWidget);
-            $location.url("/user/"+ vm.userId + "/websites/"+ vm.websiteId + "/page/" + vm.pageId + "/widget/" + widget._id);
+            $location.url("/user/"+ vm.userId + "/websites/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }
 })();

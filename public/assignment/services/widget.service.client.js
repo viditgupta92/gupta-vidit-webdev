@@ -13,7 +13,12 @@
             { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
             { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
+
+            { "_id": "h", "widgetType": "HEADER"},
+            { "_id": "i", "widgetType": "IMAGE"},
+            { "_id": "ht", "widgetType": "HTML"},
+            { "_id": "y", "widgetType": "YOUTUBE"}
         ];
 
         var api = {
@@ -27,18 +32,19 @@
         return api;
 
         function createWidget(pageId, widget) {
+                widget.pageId = pageId;
                 widget._id = (new Date()).getTime().toString();
                 widgets.push(widget);
-                return widget
         }
 
         function findWidgetByPageId(pageId) {
+            var wid = [];
             for(var w in widgets){
                 if(widgets[w].pageId === pageId){
-                    return angular.copy(widgets[w]);
+                    wid.push(widgets[w]);
                 }
             }
-            return null;
+            return wid;
         }
 
         function findWidgetById(widgetId) {

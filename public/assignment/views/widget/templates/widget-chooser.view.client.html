@@ -14,27 +14,12 @@
     </div>
 </nav>
 
-<!--<div class="container-fluid vg-form vg-container">-->
-    <!--<a ng-include="model.getEditorTemplateUrl('HEADER')" class="list-group-item">-->
-        <!--Header-->
-    <!--</a>-->
-    <!--<a ng-include="model.getEditorTemplateUrl('HTML')" class="list-group-item">-->
-        <!--HTML-->
-    <!--</a>-->
-    <!--<a ng-include="model.getEditorTemplateUrl('IMAGE')" class="list-group-item">-->
-        <!--Image-->
-    <!--</a>-->
-    <!--<a ng-include="model.getEditorTemplateUrl('YOUTUBE')" class="list-group-item">-->
-        <!--Youtube-->
-    <!--</a>-->
-<!--</div>-->
-
 <div class="container-fluid vg-form vg-container">
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click="model.createWidget(model.newHeader)">Header</a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/h" >Header</a>
                 </div>
             </div>
         </li>
@@ -49,7 +34,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click="model.createWidget(model.newHTML)">HTML</a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/ht">HTML</a>
                 </div>
             </div>
         </li>
@@ -79,7 +64,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click='model.createWidget(model.newIMAGE)'>Image</a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/i">Image</a>
                 </div>
 
             </div>
@@ -87,7 +72,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click='model.createWidget(model.newYoutube)'>YouTube</a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/y">YouTube</a>
                 </div>
 
             </div>

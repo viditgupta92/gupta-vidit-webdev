@@ -11,7 +11,7 @@
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
-        vm.widgets = WidgetService.findAllWidgets(vm.pageId);
+        vm.widgets = WidgetService.findWidgetByPageId(vm.pageId);
 
         function getWidgetTemplateUrl(widgetType) {
             var url = 'views/widget/templates/widget-'+widgetType+'.view.client.html';
@@ -19,7 +19,7 @@
         }
 
         function getTrustedHtml(html) {
-            return $sce.trustAsHtml(html)
+            return $sce.trustAsHtml(html);
         }
 
         function getYouTubeEmbedUrl(widgetUrl) {
@@ -28,8 +28,6 @@
             var url = "https://www.youtube.com/embed/"+id;
             return $sce.trustAsResourceUrl(url);
         }
+
     }
-    
-
-
 })();
