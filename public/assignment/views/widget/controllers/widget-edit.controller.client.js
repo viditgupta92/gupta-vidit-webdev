@@ -12,6 +12,7 @@
         vm.updateWidget = updateWidget;
         vm.createUpdateForWidget =createUpdateForWidget;
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
+        vm.deleteWidget = deleteWidget;
 
         function init() {
             vm.widgets = WidgetService.findAllWidgets(vm.pageId);
@@ -37,6 +38,11 @@
                 WidgetService.updateWidget(vm.widget,widgetId,vm.widget.widgetType);
                 $location.url("/user/"+ vm.userId + "/website/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
             }
+        }
+
+        function deleteWidget() {
+            WidgetService.deleteWidget(vm.widgetId);
+            $location.url("/user/"+ vm.userId + "/website/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }
 })();

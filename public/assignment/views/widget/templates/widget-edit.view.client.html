@@ -23,6 +23,10 @@
 <div class="container-fluid"
      ng-include="model.getEditorTemplateUrl(model.widget.widgetType)">
 </div>
+<div class="container-fluid">
+    <a ng-click="model.deleteWidget()" class="btn btn-danger btn-block">Delete
+        </a>
+</div>
 
 <nav class="navbar navbar-inverse bg-inverse navbar-fixed-bottom">
     <div class="container-fluid">
