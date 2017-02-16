@@ -74,6 +74,9 @@
     <div class="col-sm-8 vg-col">
         <div class="form-group">
             <br>
+            <div class="alert alert-danger" ng-show="model.error">
+                {{model.error}}
+            </div>
             <label for="name">Website Name</label>
             <input ng-model="website.name" class="form-control" id="name" placeholder="Website Name">
         </div>

@@ -17,8 +17,14 @@
         init();
 
         function createPage(page) {
-            PageService.createPage(vm.userId, page);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+            if(page == undefined || page.name == undefined || page.description == undefined)
+            {
+                vm.error = "Please enter complete details"
+            }
+            else {
+                PageService.createPage(vm.userId, page);
+                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+            }
         }
     }
 })();

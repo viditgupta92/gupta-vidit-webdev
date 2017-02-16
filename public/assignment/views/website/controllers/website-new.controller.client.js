@@ -16,8 +16,15 @@
         init();
 
         function createWebsite(website) {
-            WebsiteService.createWebsite(vm.userId, website);
-            $location.url("/user/"+vm.userId+"/website")
+            if(website == undefined || website.description == undefined || website.name == undefined)
+            {
+                vm.error = "Please enter complete details"
+            }
+            else {
+                WebsiteService.createWebsite(vm.userId, website);
+                $location.url("/user/"+vm.userId+"/website");
+            }
+
         }
     }
 })();
