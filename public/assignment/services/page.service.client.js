@@ -22,10 +22,11 @@
                 page.websiteId = websiteId;
                 page._id = (new Date()).getTime().toString();
                 pages.push(page);
+                console.log(pages);
             }
 
             function findPageByWebsiteId(websiteId) {
-                var page = []
+                var page = [];
                 for(var p in pages){
                     if(pages[p].websiteId === websiteId){
                         page.push(pages[p]);

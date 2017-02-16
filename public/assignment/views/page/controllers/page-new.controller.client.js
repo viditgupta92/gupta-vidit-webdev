@@ -22,7 +22,7 @@
                 vm.error = "Please enter complete details"
             }
             else {
-                PageService.createPage(vm.userId, page);
+                PageService.createPage(vm.websiteId, page);
                 $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
             }
         }
