@@ -6,6 +6,8 @@
     function profileController($routeParams, UserService) {
         var vm = this;
         var userId = $routeParams['uid'];
+        vm.deleteUser = deleteUser;
+
         vm.update = function(newUser){
             var user = UserService.updateUser(userId, newUser);
             if(user == null){
@@ -14,6 +16,11 @@
             else{
                 vm.message = "user successfully updated"
             }
+        }
+
+        function deleteUser() {
+            UserService.deleteUser(userId);
+            $location.url("/login");
         }
 
         var user = UserService.findUserById(userId);

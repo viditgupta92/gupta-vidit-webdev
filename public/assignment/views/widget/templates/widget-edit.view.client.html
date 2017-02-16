@@ -7,8 +7,8 @@
             </a>
         </div>
         <div class="navbar-text pull-right">
-            <a href="widget-HTML.view.client.html" class="navbar-link">
-                <span class="glyphicon glyphicon-plus">
+            <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
+                <span class="glyphicon glyphicon-ok">
                 </span>
             </a>
         </div>
@@ -27,7 +27,7 @@
 <nav class="navbar navbar-inverse bg-inverse navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="../User%20Pages/profile.view.client.html">
+            <a href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

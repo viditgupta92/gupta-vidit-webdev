@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
     <div class="container-fluid vg-head">
         <div class="navbar-text pull-right">
-            <a ng-click="model.update(model.user)" class="navbar-link">
+            <a ng-click="model.update(model.user)">
                 <span class="glyphicon glyphicon-ok">
                 </span>
             </a>
@@ -40,7 +40,7 @@
                    type="email"
                    class="form-control"
                    id="email"
-                   placeholder="alice@wonderland.com"
+                   placeholder="alice@wonderland.com">
         </div>
         <div class="form-group">
             <label for="first-name">First Name</label>
@@ -63,6 +63,8 @@
     <a class="btn btn-primary btn-block"
        href="#/user/{{model.user._id}}/website">Websites</a>
     <a class="btn btn-danger btn-block"
+       ng-click="model.deleteUser()">Delete</a>
+    <a class="btn btn-success btn-block"
        href="#/login">Logout</a>
 </div>
 

@@ -27,9 +27,9 @@
         return api;
 
         function createWidget(pageId, widget) {
-                widget.pageId = pageId;
-                widget._id = (new Date()).getTime();
+                widget._id = (new Date()).getTime().toString();
                 widgets.push(widget);
+                return widget
         }
 
         function findWidgetByPageId(pageId) {
@@ -50,13 +50,28 @@
             return null;
         }
 
-        function updateWidget(widgetId, newWidget) {
+        function updateWidget(widget,wgid,type) {
             for(var w in widgets){
-                var widget = widgets[w]
-                if(widgets[w]._id === widgetId){
+                if(widgets[w]._id===wgid){
+                    switch (type){
+                        case "HEADER":
+                            widgets[w].text=widget.text;
+                            widgets[w].size=widget.size;
+                            break;
+                        case "HTML":
+                            widgets[w].text=widget.text;
+                            break;
+                        case "YOUTUBE":
+                            widgets[w].url=widget.url;
+                            widgets[w].width=width.width;
+                            break;
+                        case "IMAGE":
+                            widgets[w].url=widget.url;
+                            widgets[w].width=widget.width;
+                            break;
+                    }
                 }
             }
-            return null;
         }
 
         function deleteWidget(widgetId) {

@@ -1,0 +1,122 @@
+<nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
+    <div class="container-fluid vg-head">
+        <div class="navbar-text pull-left">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left">
+                </span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Choose Widget
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!--<div class="container-fluid vg-form vg-container">-->
+    <!--<a ng-include="model.getEditorTemplateUrl('HEADER')" class="list-group-item">-->
+        <!--Header-->
+    <!--</a>-->
+    <!--<a ng-include="model.getEditorTemplateUrl('HTML')" class="list-group-item">-->
+        <!--HTML-->
+    <!--</a>-->
+    <!--<a ng-include="model.getEditorTemplateUrl('IMAGE')" class="list-group-item">-->
+        <!--Image-->
+    <!--</a>-->
+    <!--<a ng-include="model.getEditorTemplateUrl('YOUTUBE')" class="list-group-item">-->
+        <!--Youtube-->
+    <!--</a>-->
+<!--</div>-->
+
+<div class="container-fluid vg-form vg-container">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a ng-click="model.createWidget(model.newHeader)">Header</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="#"> Label</a>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a ng-click="model.createWidget(model.newHTML)">HTML</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="#">Text Input</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="#">Link</a>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="#">Button</a>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a ng-click='model.createWidget(model.newIMAGE)'>Image</a>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a ng-click='model.createWidget(model.newYoutube)'>YouTube</a>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="#">Data Table</a>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="#">Repeater</a>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+</div>
+
+<nav class="navbar navbar-inverse bg-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>
