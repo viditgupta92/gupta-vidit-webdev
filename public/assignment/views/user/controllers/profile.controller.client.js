@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("profileController",profileController);
     
-    function profileController($routeParams, UserService) {
+    function profileController($location, $routeParams, UserService) {
         var vm = this;
         var userId = $routeParams['uid'];
         vm.deleteUser = deleteUser;
@@ -20,7 +20,7 @@
 
         function deleteUser() {
             UserService.deleteUser(userId);
-            $location.url("/login");
+            $location.url("#/login");
         }
 
         var user = UserService.findUserById(userId);
