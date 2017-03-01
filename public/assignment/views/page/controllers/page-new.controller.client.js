@@ -11,7 +11,11 @@
         vm.createPage = createPage;
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .success(function (pages) {
+                    vm.pages = pages;
+                });
         }
 
         init();
@@ -22,7 +26,11 @@
                 vm.error = "Please enter complete details"
             }
             else {
-                PageService.createPage(vm.websiteId, page);
+                PageService
+                    .createPage(vm.websiteId, page)
+                    .success(function (pages) {
+                        vm.pages = pages;
+                    });
                 $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
             }
         }

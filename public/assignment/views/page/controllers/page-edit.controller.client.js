@@ -13,10 +13,17 @@
         vm.deletePage = deletePage;
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
-            vm.page = PageService.findPageById(vm.pageId);
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .success(function (pages) {
+                    vm.pages = pages;
+                });
+            PageService
+                .findPageById(vm.pageId)
+                .success(function (page) {
+                    vm.page = page
+                });
         }
-
         init();
 
         function updatePage(page) {
