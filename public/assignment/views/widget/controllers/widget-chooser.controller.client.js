@@ -18,8 +18,16 @@
         vm.createWidget = createWidget;
 
         function init() {
-            vm.widgets = WidgetService.findAllWidgets(vm.pageId);
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+            WidgetService
+                .findAllWidgetsForPage(vm.pageId)
+                .success(function (widgets) {
+                    vm.widgets = widgets;
+                });
+            WidgetService
+                .findWidgetById(vm.widgetId)
+                .success(function (widget) {
+                    vm.widget = widget;
+                });
             vm.newHeader = {
                 "_id": "","widgetType": "HEADER","pageId": vm.pageId,"size": 0, "text": ""
             };
@@ -36,7 +44,11 @@
         init();
 
         function createWidget(newWidget) {
-            var widget = WidgetService.createWidget(vm.pageId, newWidget);
+            WidgetService
+                .createWidget(vm.pageId, newWidget)
+                .success(function (widget) {
+                    var widget = widget;
+                });
             $location.url("/user/"+ vm.userId + "/websites/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }

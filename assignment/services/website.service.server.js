@@ -36,7 +36,7 @@ module.exports = function (app) {
     }
 
     function findWebsiteByUser(req, res) {
-        userId = req.params.uid;
+        var userId = req.params.uid;
         for(var w in websites){
             if(websites[w].developerId === userId){
                 return angular.copy(websites[w]);
@@ -46,7 +46,7 @@ module.exports = function (app) {
     }
 
     function deleteWebsite(req, res) {
-        websiteId = req.params.wid;
+        var websiteId = req.params.wid;
         for(var w in websites){
             if(websites[w]._id === websiteId){
                 websites.splice(w,1);
@@ -58,7 +58,7 @@ module.exports = function (app) {
     }
 
     function updateWebsite(req, res) {
-        websiteId = req.params.wid;
+        var websiteId = req.params.wid;
         var newWebsite = req.body;
         for(var w in websites){
             if(websites[w]._id === websiteId){
@@ -71,7 +71,7 @@ module.exports = function (app) {
     }
 
     function findWebsiteById(req,res) {
-        websiteId = req.params.wid;
+        var websiteId = req.params.wid;
         var website = websites.find(function(w) {
             return w._id === websiteId;
         });
