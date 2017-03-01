@@ -5,6 +5,11 @@ module.exports = function (app) {
     app.put("/api/widget/:widgetId", updateWidget);
     app.get("/api/widget/:widgetId", findWidgetById);
 
+    var multer = require('multer'); // npm install multer --save
+    var upload = multer({ dest: __dirname+'/../../public/uploads' });
+
+    app.post("/api/upload", upload.single('myFile'), uploadImage);
+
     var widgets = [
         { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
         { "_id": "234", "widgetType": "HEAD ER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -12,7 +17,7 @@ module.exports = function (app) {
             "url": "http://lorempixel.com/400/200/"},
         { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
         { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-        { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
+        { "_id": "678   ", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
             "url": "https://youtu.be/AM2Ivdi9c4E" },
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
 
@@ -93,4 +98,20 @@ module.exports = function (app) {
         }
         res.sendStatus(404);
     }
+
+    function uploadImage(req, res) {
+
+        var widgetId      = req.body.widgetId;
+        var width         = req.body.width;
+        var myFile        = req.file;
+
+        var originalname  = myFile.originalname; // file name on user's computer
+        var filename      = myFile.filename;     // new file name in upload folder
+        var path          = myFile.path;         // full path of uploaded file
+        var destination   = myFile.destination;  // folder where file is saved to
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+        res.json(filename);
+    }
+
 };

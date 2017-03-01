@@ -6,7 +6,15 @@
     function profileController($location, $routeParams, UserService) {
         var vm = this;
         var userId = $routeParams['uid'];
-        vm.deleteUser = deleteUser;
+        vm.unregisterUser = unregisterUser;
+
+        function init(){
+            var promise = UserService.findUserById(userId);
+            promise.success(function(user){
+                vm.user = user;
+            });
+        }
+        init();
 
         vm.update = function(newUser){
             UserService
@@ -21,18 +29,20 @@
             });
         }
 
-        function deleteUser() {
-            UserService.deleteUser(userId);
-            $location.url("#/login");
+        function unregisterUser(user) {
+            var choice = confirm("Are you sure?");
+            if(choice){
+                    UserService
+                        .deleteUser(user._id)
+                        .success(function () {
+                            $location.url("/login");
+                        })
+                        .error(function () {
+                            vm.error = "Unable to remove user";
+                        });
+            }
         }
 
-        function init(){
-            var promise = UserService.findUserById(userId);
-            promise.success(function(user){
-                vm.user = user;
-            });
-        }
-        init();
     }
 
 })();
