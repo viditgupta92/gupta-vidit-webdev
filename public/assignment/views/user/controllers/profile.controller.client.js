@@ -9,13 +9,16 @@
         vm.deleteUser = deleteUser;
 
         vm.update = function(newUser){
-            var user = UserService.updateUser(userId, newUser);
-            if(user == null){
-                vm.error= "unable to update user";
-            }
-            else{
-                vm.message = "user successfully updated"
-            }
+            UserService
+                .updateUser(userId, newUser)
+                .success(function(user) {
+                if(user == null){
+                    vm.error= "unable to update user";
+                }
+                else{
+                    vm.message = "user successfully updated"
+                }
+            });
         }
 
         function deleteUser() {
@@ -23,10 +26,13 @@
             $location.url("#/login");
         }
 
-        var user = UserService.findUserById(userId);
-        vm.user = user;
-
-        console.log(user);
+        function init(){
+            var promise = UserService.findUserById(userId);
+            promise.success(function(user){
+                vm.user = user;
+            });
+        }
+        init();
     }
 
 })();

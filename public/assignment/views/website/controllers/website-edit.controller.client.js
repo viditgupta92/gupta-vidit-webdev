@@ -12,19 +12,35 @@
         vm.deleteWebsite = deleteWebsite;
 
         function init() {
-            vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            WebsiteService
+                .findAllWebsitesForUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                });
+            WebsiteService
+                .findWebsiteById(vm.websiteId)
+                .success(function (website) {
+                    vm.website = website;
+                });
         }
 
         init();
 
-        function updateWebsite(website) {
-            WebsiteService.updateWebsite(vm.websiteId,website);
+        function updateWebsite(newWebsite) {
+            WebsiteService
+                .updateWebsite(vm.websiteId, newWebsite)
+                .success(function (website) {
+                    vm.website = website;
+                });
             $location.url("/user/"+vm.userId+"/website");
         }
 
         function deleteWebsite() {
-            WebsiteService.deleteWebsite(vm.websiteId);
+            WebsiteService
+                .deleteWebsite(vm.websiteId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                });
             $location.url("/user/"+vm.userId+"/website");
         }
     }

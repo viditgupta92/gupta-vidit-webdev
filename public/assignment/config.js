@@ -3,7 +3,10 @@
         .module("WebAppMaker")
         .config(configuration);
 
-    function configuration($routeProvider) {
+    function configuration($routeProvider, $httpProvider) {
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+        $httpProvider.defaults.headers.put['Content-Type'] = 'application/json;charset=utf-8';
+
         $routeProvider
             .when("/", {
                 templateUrl:"views/user/templates/login.view.client.html",
@@ -16,7 +19,9 @@
                 controllerAs: "model"
             })
             .when("/register", {
-                templateUrl: "views/user/templates/register.view.client.html"
+                templateUrl: "views/user/templates/register.view.client.html",
+                controller: "RegisterController",
+                controllerAs: "model"
             })
             .when("/user/:uid", {
                 templateUrl: "views/user/templates/profile.view.client.html",

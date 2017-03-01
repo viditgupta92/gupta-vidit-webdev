@@ -10,7 +10,11 @@
         vm.createWebsite = createWebsite;
 
         function init() {
-            vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
+            WebsiteService
+                .findAllWebsitesForUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                });
         }
 
         init();
@@ -21,7 +25,11 @@
                 vm.error = "Please enter complete details"
             }
             else {
-                WebsiteService.createWebsite(vm.userId, website);
+                WebsiteService
+                    .createWebsite(vm.userId, website)
+                    .success(function (websites) {
+                        vm.websites = websites;
+                    });
                 $location.url("/user/"+vm.userId+"/website");
             }
 
