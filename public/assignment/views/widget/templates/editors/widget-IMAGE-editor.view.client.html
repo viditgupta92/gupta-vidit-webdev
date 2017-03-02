@@ -1,15 +1,5 @@
 <h1>IMAGE Editor</h1>
 
-<label>Name</label>
-<input ng-model="model.widget.name" class="form-control">
-
-<label>Url</label>
-<input ng-model="model.widget.url" class="form-control">
-
-<label>Size</label>
-<input ng-model="model.widget.width" class="form-control">
-
-
 <form action="/api/upload"  method="post" enctype="multipart/form-data">
     <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
     <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
@@ -20,22 +10,29 @@
 
     <!--<label for="widget-name">Name</label>-->
     <!--<input type="text"-->
-           <!--class="form-control"-->
-           <!--id="widget-name"-->
-           <!--value="IMAGE"-->
+    <!--class="form-control"-->
+    <!--id="widget-name"-->
+    <!--value="IMAGE"-->
     <!--/>-->
     <!--<label>URL</label>-->
     <!--<input   ng-model="model.widget.url"-->
-             <!--type="text"-->
-             <!--class="form-control"-->
-             <!--value="https://www.google.com/search?q=images&espv=2&biw=753&bih=970&source=lnms"-->
+    <!--type="text"-->
+    <!--class="form-control"-->
+    <!--value="https://www.google.com/search?q=images&espv=2&biw=753&bih=970&source=lnms"-->
     <!--/>-->
     <!--<label>Width</label>-->
     <!--<input   ng-model="model.widget.width"-->
-             <!--type="text"-->
-             <!--class="form-control"-->
-             <!--value="100%"-->
+    <!--type="text"-->
+    <!--class="form-control"-->
+    <!--value="100%"-->
     <!--/>-->
+
+    <label>Url</label>
+    <input ng-model="model.widget.url" class="form-control">
+
+    <label>Size</label>
+    <input ng-model="width" class="form-control">
+
     <label>Upload</label>
     <input type="file"
            class="form-control"

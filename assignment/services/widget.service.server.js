@@ -120,7 +120,7 @@ module.exports = function (app) {
         var websiteId     = req.body.websiteId;
 
         var myFile        = req.file;
-        var destination   = myFile.destination;  // folder where file is saved to
+        // var destination   = myFile.destination;  // folder where file is saved to
 
         var originalname  = myFile.originalname; // file name on user's computer
         var filename      = myFile.filename;     // new file name in upload folder
@@ -136,7 +136,7 @@ module.exports = function (app) {
                 pageId = widgets[i].pageId;
             }
         }
-        res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/"+ widgetId);
+        res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
     }
 
 };
