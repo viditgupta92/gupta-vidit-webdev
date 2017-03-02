@@ -6,6 +6,18 @@ module.exports = function (app) {
     app.get("/api/widget/:widgetId", findWidgetById);
 
     var multer = require('multer'); // npm install multer --save
+
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, __dirname+"/../../public/uploads")
+        },
+        filename: function (req, file, cb) {
+            var extArray = file.mimetype.split("/");
+            var extension = extArray[extArray.length - 1];
+            cb(null, 'widget_image_' + Date.now()+ '.' +extension)
+        }
+    });
+
     var upload = multer({ dest: __dirname+'/../../public/uploads' });
 
     app.post("/api/upload", upload.single('myFile'), uploadImage);
@@ -101,17 +113,30 @@ module.exports = function (app) {
 
     function uploadImage(req, res) {
 
+        var pageId        = req.body.pageId;
         var widgetId      = req.body.widgetId;
         var width         = req.body.width;
+        var userId        = req.body.userId;
+        var websiteId     = req.body.websiteId;
+
         var myFile        = req.file;
+        var destination   = myFile.destination;  // folder where file is saved to
 
         var originalname  = myFile.originalname; // file name on user's computer
         var filename      = myFile.filename;     // new file name in upload folder
         var path          = myFile.path;         // full path of uploaded file
-        var destination   = myFile.destination;  // folder where file is saved to
+
         var size          = myFile.size;
         var mimetype      = myFile.mimetype;
-        res.json(filename);
+
+        for(var i in widgets){
+            if(widgets[i]._id === widgetId){
+                widgets[i].width = width;
+                widgets[i].url = req.protocol + '://' +req.get('host')+"/uploads/"+myFile.filename;
+                pageId = widgets[i].pageId;
+            }
+        }
+        res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/"+ widgetId);
     }
 
 };
