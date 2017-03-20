@@ -17,12 +17,6 @@
                 },
                 stop:function (event, ui) {
                     index2=ui.item.index();
-
-                    WidgetService.reorderlist(pageId,index1,index2)
-                        .success(function (successful) {
-                            if(successful)
-                            {;}
-                        })
                 }
             });
         }

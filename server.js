@@ -10,7 +10,13 @@ app.use(express.static(__dirname + '/public'));
 
 require ("./test/app.js")(app);
 
-var assignment = require("./assignment/app.js");
+require("./mongo/movies.js")(app);
+
+// require("./assignment/model/models.server.js");
+require("./assignment5/model/models.server.js");
+
+// var assignment = require("./assignment/app.js");
+var assignment = require("./assignment5/app.js");
 assignment(app);
 
 var port = process.env.PORT || 3000;

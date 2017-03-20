@@ -38,7 +38,7 @@
                 "_id": "","widgetType": "HTML","pageId": vm.pageId,"text": ""
             };
             vm.newIMAGE = {
-                "_id": "","widgetType": "IMAGE","pageId": vm.pageId,"width": "0","url":""
+                "_id": "","widgetType": "IMAGE","pageId": vm.pageId,"width": "100","url":""
             };
         }
         init();

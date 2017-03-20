@@ -14,15 +14,25 @@
         init();
 
         function login(user){
-            var promise = UserService.findUserByCredentials(user.username, user.password);
-            promise.success(function (response) {
-                var loginUser = response;
-                if(loginUser){
-                    $location.url("/user/" + loginUser._id);
-                } else{
-                    vm.error = "User not found";
-                }
-            })
+            UserService
+                .findUserByCredentials(user.username, user.password)
+                .then(gotoUser);
+            // promise.success(function (response) {
+            //     var loginUser = response;
+            //     if(loginUser){
+            //         $location.url("/user/" + loginUser._id);
+            //     } else{
+            //         vm.error = "User not found";
+            //     }
+            // })
+        }
+
+        function gotoUser(user) {
+            if(user){
+                $location.url("/user/" + user._id);
+            } else{
+                vm.error = "User not found";
+            }
         }
     }
 })();

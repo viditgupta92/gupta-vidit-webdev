@@ -6,27 +6,33 @@
     function profileController($location, $routeParams, UserService) {
         var vm = this;
         var userId = $routeParams['uid'];
+        vm.updateUser = updateUser;
         vm.unregisterUser = unregisterUser;
 
         function init(){
-            var promise = UserService.findUserById(userId);
-            promise.success(function(user){
-                vm.user = user;
-            });
+            findUserById();
         }
         init();
 
-        vm.update = function(newUser){
+        function findUserById() {
+            UserService
+                .findUserById(userId)
+                .then(renderUser);
+        }
+
+        function renderUser(user) {
+            vm.user = user;
+            console.log(vm.user);
+        }
+
+        function updateUser(newUser){
             UserService
                 .updateUser(userId, newUser)
-                .success(function(user) {
-                if(user == null){
-                    vm.error= "unable to update user";
-                }
-                else{
-                    vm.message = "user successfully updated"
-                }
-            });
+                .then(gotoUser);
+        }
+
+        function gotoUser() {
+            $location.url("/user/" + userId)
         }
 
         function unregisterUser(user) {
@@ -34,13 +40,18 @@
             if(choice){
                     UserService
                         .deleteUser(user._id)
-                        .success(function () {
-                            $location.url("/login");
-                        })
-                        .error(function () {
-                            vm.error = "Unable to remove user";
-                        });
+                        // .success(function () {
+                        //     $location.url("/login");
+                        // })
+                        // .error(function () {
+                        //     vm.error = "Unable to remove user";
+                        // })
+                        .then(gotoLogin);
             }
+        }
+
+        function gotoLogin() {
+            $location.url("/login");
         }
 
     }
