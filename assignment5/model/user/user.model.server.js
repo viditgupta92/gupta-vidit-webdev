@@ -9,6 +9,8 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
+userModel.addWebsite = addWebsite;
+
 module.exports = userModel;
 
 function createUser(user) {
@@ -90,6 +92,22 @@ function deleteUser(userId) {
                 d.reject(new Error(err));
             } else {
                 d.resolve(status);
+            }
+        })
+    return d.promise;
+}
+
+function addWebsite(userId, websiteId) {
+    console.log(websiteId);
+    var d = q.defer();
+    userModel
+        .findById(userId, function (err, user) {
+            if(err){
+                d.reject(new Error(err));
+            } else{
+                user.websites.push(websiteId);
+                user.save();
+                d.resolve(user);
             }
         })
     return d.promise;

@@ -1,7 +1,7 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WebsiteNewController", WebsiteNewController)
+        .controller("WebsiteNewController", WebsiteNewController);
 
     function WebsiteNewController($routeParams, $location, WebsiteService) {
         var vm = this;
@@ -9,15 +9,17 @@
 
         vm.createWebsite = createWebsite;
 
-        function init() {
+        function findAllWebsitesForUser() {
+            userId = vm.userId;
             WebsiteService
-                .findAllWebsitesForUser(vm.userId)
-                .success(function (websites) {
-                    vm.websites = websites;
-                });
+                .findAllWebsitesForUser(userId)
+                .then(renderWebsites);
         }
 
-        init();
+        function renderWebsites(websites) {
+            vm.websites = websites;
+            $location.url("/user/"+vm.userId + "/website");
+        }
 
         function createWebsite(website) {
             if(website == undefined || website.description == undefined || website.name == undefined)
@@ -27,11 +29,12 @@
             else {
                 WebsiteService
                     .createWebsite(vm.userId, website)
-                    .success(function (websites) {
-                        vm.websites = websites;
-                    });
-                $location.url("/user/"+vm.userId+"/website");
+                    .then(listWebsites)
             }
+        }
+
+        function listWebsites() {
+            findAllWebsitesForUser();
         }
     }
 })();

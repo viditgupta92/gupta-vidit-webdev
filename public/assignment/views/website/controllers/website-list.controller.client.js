@@ -8,13 +8,20 @@
         vm.userId = $routeParams.uid;
 
         function init(){
-            WebsiteService
-                .findAllWebsitesForUser(vm.userId)
-                .success(function (websites) {
-                    vm.websites = websites
-                });
+            findAllWebsitesForUser();
         }
         init();
+
+        function findAllWebsitesForUser() {
+            WebsiteService
+                .findAllWebsitesForUser(vm.userId)
+                .then(renderWebsites);
+        }
+
+        function renderWebsites(websites) {
+            vm.websites = websites;
+            console.log(vm.websites);
+        }
 
         function getEditorTemplateUrl(type) {
             return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';

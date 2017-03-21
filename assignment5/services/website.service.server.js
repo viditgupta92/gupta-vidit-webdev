@@ -6,33 +6,36 @@ module.exports = function (app, model) {
     app.put("/api/website/:wid", updateWebsite);
     app.get("/api/website/:wid", findWebsiteById);
 
-    var websites = [
-        { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem", created: new Date()  },
-        { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem", created: new Date()  },
-        { "_id": "456", "name": "Gizmodo",     "developerId": "456", "description": "Lorem", created: new Date()  },
-        { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem", created: new Date()  },
-        { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem", created: new Date()  },
-        { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem", created: new Date()  }
-    ];
+    var websiteModel = model.websiteModel;
+    var userModel = model.userModel;
 
     function findAllWebsitesForUser(req, res) {
         var userId = req.params.uid;
-        var sites = [];
-        for(var w in websites){
-            if(websites[w].developerId === userId){
-                sites.push(websites[w]);
-            }
-        }
-        res.json(sites);
+        websiteModel
+            .findAllWebsitesForUser(userId)
+            .then(function (websites){
+                res.send(websites);
+            }, function(err){
+                res.sendStatus(500).send(err);
+            });
     }
 
     function createWebsite(req, res) {
-        var developerId = req.params.uid;
+        var userId = req.params.uid;
         var newWebsite = req.body;
-        newWebsite.developerId = developerId;
-        newWebsite._id = (new Date()).getTime().toString();
-        websites.push(newWebsite);
-        res.json(websites);
+        websiteModel
+            .createWebsiteForUser(userId, newWebsite)
+            .then(function (website){
+                userModel
+                    .addWebsite(userId, website._doc._id)
+                    .then(function (user){
+                        res.send(user);
+                    }, function(err){
+                        res.sendStatus(500).send(err);
+                    });
+            }, function(err){
+                res.sendStatus(500).send(err);
+            });
     }
 
     function findWebsiteByUser(req, res) {
@@ -47,34 +50,35 @@ module.exports = function (app, model) {
 
     function deleteWebsite(req, res) {
         var websiteId = req.params.wid;
-        for(var w in websites){
-            if(websites[w]._id === websiteId){
-                websites.splice(w,1);
-                res.sendStatus(200);
-                return;
-            }
-        }
-        res.sendStatus(404);
+        websiteModel
+            .deleteWebsite(websiteId)
+            .then(function (status){
+                res.send(status);
+            }, function(err){
+                res.sendStatus(500).send(err);
+            });
     }
 
     function updateWebsite(req, res) {
         var websiteId = req.params.wid;
         var newWebsite = req.body;
-        for(var w in websites){
-            if(websites[w]._id === websiteId){
-                websites[w].name = newWebsite.name;
-                websites[w].description = newWebsite.description;
-                res.json(websites[w]);
-                return;
-            }
-        }
+        websiteModel
+            .updateWebsite(websiteId, newWebsite)
+            .then(function (status){
+                res.send(status);
+            }, function(err){
+                res.sendStatus(500).send(err);
+            });
     }
 
     function findWebsiteById(req,res) {
         var websiteId = req.params.wid;
-        var website = websites.find(function(w) {
-            return w._id === websiteId;
-        });
-        res.json(website);
+        websiteModel
+            .findWebsiteById(websiteId)
+            .then(function (website){
+                res.send(website);
+            }, function(err){
+                res.sendStatus(500).send(err);
+            });
     }
 };
