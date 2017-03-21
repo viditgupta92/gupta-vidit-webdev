@@ -10,6 +10,7 @@ websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
 websiteModel.findWebsiteById = findWebsiteById;
 websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
+websiteModel.addPage = addPage;
 module.exports = websiteModel;
 
 function createWebsiteForUser(userId, website) {
@@ -73,6 +74,21 @@ function deleteWebsite(websiteId) {
                 d.reject(new Error(err));
             } else {
                 d.resolve(status);
+            }
+        })
+    return d.promise;
+}
+
+function addPage(websiteId, pageId) {
+    var d = q.defer();
+    websiteModel
+        .findById(websiteId, function (err, website) {
+            if(err){
+                d.reject(new Error(err));
+            } else{
+                website.pages.push(pageId);
+                website.save();
+                d.resolve(website);
             }
         })
     return d.promise;

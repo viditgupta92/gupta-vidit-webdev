@@ -13,27 +13,41 @@
         vm.deletePage = deletePage;
 
         function init() {
-            PageService
-                .findPageByWebsiteId(vm.websiteId)
-                .success(function (pages) {
-                    vm.pages = pages;
-                });
+            // PageService
+            //     .findPageByWebsiteId(vm.websiteId)
+            //     .success(function (pages) {
+            //         vm.pages = pages;
+            //     });
             PageService
                 .findPageById(vm.pageId)
-                .success(function (page) {
-                    vm.page = page
-                });
+                .then(renderPage);
         }
         init();
 
+        function renderPage(page) {
+            vm.page = page.data;
+        }
+
         function updatePage(page) {
-            PageService.updatePage(vm.pageId,page);
+            PageService
+                .updatePage(vm.pageId,page)
+                .then(findAllPagesForWebsite);
+        }
+
+        function findAllPagesForWebsite() {
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .then(gotoPage);
+        }
+
+        function gotoPage() {
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
         }
 
         function deletePage() {
-            PageService.deletePage(vm.pageId);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            PageService
+                .deletePage(vm.pageId)
+                .then(findAllPagesForWebsite);
         }
     }
 })();

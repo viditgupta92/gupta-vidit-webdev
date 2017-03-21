@@ -10,29 +10,30 @@
 
         vm.createPage = createPage;
 
-        function init() {
+        function findPageByWebsiteId() {
             PageService
                 .findPageByWebsiteId(vm.websiteId)
-                .success(function (pages) {
-                    vm.pages = pages;
-                });
+                .then(renderPages);
         }
 
-        init();
+        function renderPages(pages) {
+            vm.pages = pages;
+            $location.url("/user/"+vm.userId + "/website/" +vm.websiteId +"/page");
+        }
 
         function createPage(page) {
-            if(page == undefined || page.name == undefined || page.description == undefined)
-            {
+            if (page == undefined || page.name == undefined || page.description == undefined) {
                 vm.error = "Please enter complete details"
             }
             else {
                 PageService
                     .createPage(vm.websiteId, page)
-                    .success(function (pages) {
-                        vm.pages = pages;
-                    });
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                    .then(listPages);
             }
+        }
+
+        function listPages() {
+            findPageByWebsiteId();
         }
     }
 })();

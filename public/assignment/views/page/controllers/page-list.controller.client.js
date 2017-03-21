@@ -9,12 +9,19 @@
         vm.websiteId = $routeParams.wid;
 
         function init(){
-            PageService
-                .findPageByWebsiteId(vm.websiteId)
-                .success(function (pages) {
-                    vm.pages = pages
-                });
+            findPageByWebsiteId();
         }
         init();
+
+        function findPageByWebsiteId() {
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .then(renderPage);
+        }
+
+        function renderPage(pages) {
+            console.log(pages);
+            vm.pages = pages.data;
+        }
     }
 })();
