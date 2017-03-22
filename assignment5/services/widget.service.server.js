@@ -34,7 +34,13 @@ module.exports = function (app, model) {
                 pageModel
                     .addWidget(pageId, widget._doc._id)
                     .then(function (page){
-                        res.send(page);
+                        widgetModel
+                            .findWidgetById(widget._id)
+                            .then(function (widget) {
+                                res.send(widget);
+                            }, function(err){
+                                res.sendStatus(500).send(err);
+                            });
                     }, function(err){
                         res.sendStatus(500).send(err);
                     });

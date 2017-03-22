@@ -28,7 +28,7 @@
 
         function getEditorTemplateUrl() {
             var type;
-            if(vm.widgetId === "h"||vm.widgetId ==="ht"||vm.widgetId ==="i"||vm.widgetId ==="y") {
+            if(vm.widgetId === "h"||vm.widgetId ==="ht"||vm.widgetId ==="i"||vm.widgetId ==="y"||vm.widgetId==="tx") {
                 switch (vm.widgetId) {
                     case 'h':
                         type = 'HEADER';
@@ -41,6 +41,9 @@
                         break;
                     case 'y':
                         type = 'YOUTUBE';
+                        break;
+                    case 'tx':
+                        type = 'TEXT';
                         break;
                     default:
                         console.log('No such option');
@@ -60,6 +63,9 @@
                     case 'y':
                         type = 'YOUTUBE';
                         break;
+                    case 'tx':
+                        type = 'TEXT';
+                        break;
                     default:
                         console.log('No such option');
                 }
@@ -69,11 +75,11 @@
         }
 
         function createUpdateForWidget(widgetId) {
-            if(widgetId === "h"||widgetId ==="ht"||widgetId ==="i"||widgetId ==="y"){
+            if(widgetId === "h"||widgetId ==="ht"||widgetId ==="i"||widgetId ==="y"||widgetId==="tx"){
                 vm.widget.type = widgetId;
                 WidgetService
                     .createWidget(vm.pageId,vm.widget)
-                    .then(gotoWidgets);
+                    .then(gotoWidget);
             }
             else{
                 WidgetService
@@ -92,6 +98,11 @@
             WidgetService
                 .findAllWidgetsForPage(vm.pageId)
                 .then(gotoWidgets)
+        }
+
+        function gotoWidget(widget) {
+            vm.widget = widget;
+            displayWidgets();
         }
 
         function gotoWidgets(widgets) {

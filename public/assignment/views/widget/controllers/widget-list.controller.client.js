@@ -34,6 +34,8 @@
                     break;
                 case 'y': type = 'YOUTUBE';
                     break;
+                case 'tx': type = 'TEXT';
+                    break;
                 default:
                     console.log('No such option');
             }

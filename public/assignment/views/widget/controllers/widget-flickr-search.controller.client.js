@@ -34,11 +34,11 @@
                 // .then();
         }
 
-        function renderWidget(page) {
+        function renderWidget(widget) {
             var userId = $routeParams.uid;
             var websiteId = $routeParams.wid;
-            // var widgetId = page.data.widgets;
-            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+vm.pageId+"/widget");
+            var widgetId = widget.data._id;
+            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+vm.pageId+"/widget/"+widgetId);
         }
     }
 })();
