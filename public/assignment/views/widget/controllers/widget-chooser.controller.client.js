@@ -20,14 +20,12 @@
         function init() {
             WidgetService
                 .findAllWidgetsForPage(vm.pageId)
-                .success(function (widgets) {
-                    vm.widgets = widgets;
-                });
-            WidgetService
-                .findWidgetById(vm.widgetId)
-                .success(function (widget) {
-                    vm.widget = widget;
-                });
+                .then(renderWidgets);
+            // WidgetService
+            //     .findWidgetById(vm.widgetId)
+            //     .success(function (widget) {
+            //         vm.widget = widget;
+            //     });
             vm.newHeader = {
                 "_id": "","widgetType": "HEADER","pageId": vm.pageId,"size": 0, "text": ""
             };
@@ -43,12 +41,18 @@
         }
         init();
 
+        function renderWidgets(widgets) {
+            vm.widgets = widgets;
+        }
+
         function createWidget(newWidget) {
             WidgetService
                 .createWidget(vm.pageId, newWidget)
-                .success(function (widget) {
-                    var widget = widget;
-                });
+                .then(renderWidget);
+        }
+
+        function renderWidget(widget) {
+            vm.widget = widget;
             $location.url("/user/"+ vm.userId + "/websites/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }

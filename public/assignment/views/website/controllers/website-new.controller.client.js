@@ -9,16 +9,16 @@
 
         vm.createWebsite = createWebsite;
 
-        function findAllWebsitesForUser() {
-            userId = vm.userId;
+        function init() {
             WebsiteService
-                .findAllWebsitesForUser(userId)
-                .then(renderWebsites);
+                .findAllWebsitesForUser(vm.userId)
+                .then(findAllWebsitesForUser);
         }
 
-        function renderWebsites(websites) {
+        init();
+
+        function findAllWebsitesForUser(websites) {
             vm.websites = websites;
-            $location.url("/user/"+vm.userId + "/website");
         }
 
         function createWebsite(website) {
@@ -34,7 +34,14 @@
         }
 
         function listWebsites() {
-            findAllWebsitesForUser();
+            WebsiteService
+                .findAllWebsitesForUser(vm.userId)
+                .then(gotoWebsites);
+        }
+
+        function gotoWebsites(websites) {
+            vm.websites = websites;
+            $location.url("/user/"+vm.userId+"/website");
         }
     }
 })();

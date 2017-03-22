@@ -12,15 +12,19 @@
         vm.deleteWebsite = deleteWebsite;
 
         function init() {
-            // WebsiteService
-            //     .findAllWebsitesForUser(vm.userId)
-            //     .then(findAllWebsitesForUser);
+            WebsiteService
+                .findAllWebsitesForUser(vm.userId)
+                .then(renderWebsites);
             WebsiteService
                 .findWebsiteById(vm.websiteId)
                 .then(renderWebsite);
         }
 
         init();
+
+        function renderWebsites(websites) {
+            vm.websites = websites;
+        }
 
         function renderWebsite(website) {
             vm.website = website;
@@ -33,14 +37,14 @@
 
         }
 
-        function findAllWebsitesForUser() {
+        function findAllWebsitesForUser(websites) {
             WebsiteService
                 .findAllWebsitesForUser(vm.userId)
                 .then(gotoWebsite);
         }
 
         function gotoWebsite(websites) {
-            vm.websites = websites;
+            vm.websites = websites.data;
             $location.url("/user/"+vm.userId+"/website");
         }
 

@@ -1,16 +1,18 @@
 <h1>IMAGE Editor</h1>
 
+<label>Url</label>
+<input ng-model="model.widget.url" class="form-control">
+
+<label>Size</label>
+<input ng-model="model.widget.width" class="form-control">
+
 <form action="/api/upload"  method="post" enctype="multipart/form-data">
-    <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
+    <input  name="widgetId" value="{{model.widgetId}}"   style="display: none"/>
     <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
     <input  name="userId" value="{{model.userId}}"   style="display: none"/>
     <input  name="pageId" value="{{model.pageId}}"   style="display: none"/>
 
-    <label>Url</label>
-    <input ng-model="model.widget.url" class="form-control">
-
-    <label>Size</label>
-    <input ng-model="model.widget.width" class="form-control">
+    <input  name="width" value="{{model.widget.width}}" style="display: none"/>
 
     <label>Upload</label>
     <input type="file"
@@ -19,4 +21,7 @@
            value="https://www.google.com/search?q=images&espv=2&biw=753&bih=970&source=lnms"
     />
     <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
+    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/flickr" class="btn btn-success btn-block">
+        Search
+    </a>
 </form>

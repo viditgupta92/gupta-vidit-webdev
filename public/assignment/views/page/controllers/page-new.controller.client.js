@@ -10,15 +10,16 @@
 
         vm.createPage = createPage;
 
-        function findPageByWebsiteId() {
+        function init() {
             PageService
                 .findPageByWebsiteId(vm.websiteId)
                 .then(renderPages);
         }
 
+        init();
+
         function renderPages(pages) {
-            vm.pages = pages;
-            $location.url("/user/"+vm.userId + "/website/" +vm.websiteId +"/page");
+            vm.pages = pages.data;
         }
 
         function createPage(page) {
@@ -33,7 +34,14 @@
         }
 
         function listPages() {
-            findPageByWebsiteId();
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .then(gotoPages);
+        }
+
+        function gotoPages(pages) {
+            vm.pages = pages.data;
+            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page")
         }
     }
 })();

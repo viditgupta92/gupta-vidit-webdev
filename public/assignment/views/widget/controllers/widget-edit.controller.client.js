@@ -9,63 +9,93 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
-        vm.updateWidget = updateWidget;
+        // vm.updateWidget = updateWidget;
         vm.createUpdateForWidget =createUpdateForWidget;
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
         vm.deleteWidget = deleteWidget;
 
         function init() {
             WidgetService
-                .findAllWidgetsForPage(vm.pageId)
-                .success(function (widgets) {
-                    vm.widgets = widgets;
-                });
-            WidgetService
                 .findWidgetById(vm.widgetId)
-                .success(function (widget) {
-                    vm.widget = widget;
-                });
+                .then(renderWidget);
         }
         init();
 
-        function updateWidget(widget) {
-            WidgetService
-                .updateWidget(widget,vm.widgetId)
-                .success(function (widget) {
-                    vm.widget = widget;
-                });
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+        function renderWidget(widget) {
+            console.log(widget.data);
+            vm.widget = widget.data;
         }
 
-        function getEditorTemplateUrl(type) {
+        function getEditorTemplateUrl() {
+            var type;
+            if(vm.widgetId === "h"||vm.widgetId ==="ht"||vm.widgetId ==="i"||vm.widgetId ==="y") {
+                switch (vm.widgetId) {
+                    case 'h':
+                        type = 'HEADER';
+                        break;
+                    case 'ht':
+                        type = 'HTML';
+                        break;
+                    case 'i':
+                        type = 'IMAGE';
+                        break;
+                    case 'y':
+                        type = 'YOUTUBE';
+                        break;
+                    default:
+                        console.log('No such option');
+                }
+            }
+            else{
+                switch (vm.widget.type) {
+                    case 'h':
+                        type = 'HEADER';
+                        break;
+                    case 'ht':
+                        type = 'HTML';
+                        break;
+                    case 'i':
+                        type = 'IMAGE';
+                        break;
+                    case 'y':
+                        type = 'YOUTUBE';
+                        break;
+                    default:
+                        console.log('No such option');
+                }
+            }
+            console.log(type);
             return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';
         }
 
         function createUpdateForWidget(widgetId) {
             if(widgetId === "h"||widgetId ==="ht"||widgetId ==="i"||widgetId ==="y"){
+                vm.widget.type = widgetId;
                 WidgetService
                     .createWidget(vm.pageId,vm.widget)
-                    .success(function (widget) {
-                        vm.widget = widget;
-                    });
-                $location.url("/user/"+ vm.userId + "/website/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
+                    .then(gotoWidgets);
             }
             else{
                 WidgetService
                     .updateWidget(vm.widget,widgetId,vm.widget.widgetType)
-                    .success(function (widget) {
-                        vm.widget = widget;
-                    });
-                $location.url("/user/"+ vm.userId + "/website/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
+                    .then(displayWidgets);
             }
         }
 
         function deleteWidget() {
             WidgetService
                 .deleteWidget(vm.widgetId)
-                .success(function (widgets) {
-                    vm.widgets = widgets;
-                });
+                .then(gotoWidgets);
+        }
+
+        function displayWidgets() {
+            WidgetService
+                .findAllWidgetsForPage(vm.pageId)
+                .then(gotoWidgets)
+        }
+
+        function gotoWidgets(widgets) {
+            vm.widgets = widgets.data.widgets;
             $location.url("/user/"+ vm.userId + "/website/"+ vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }

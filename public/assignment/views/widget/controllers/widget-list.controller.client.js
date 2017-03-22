@@ -15,14 +15,29 @@
         function init(){
             WidgetService
                 .findAllWidgetsForPage(vm.pageId)
-                .success(function (widgets) {
-                    vm.widgets = widgets
-                });
+                .then(renderWidgets);
         }
         init();
 
+        function renderWidgets(widgets) {
+            vm.widgets = widgets.data;
+        }
+
         function getWidgetTemplateUrl(widgetType) {
-            var url = 'views/widget/templates/widget-'+widgetType+'.view.client.html';
+            var type;
+            switch(widgetType){
+                case 'h': type = 'HEADER';
+                    break;
+                case 'ht': type = 'HTML';
+                    break;
+                case 'i': type = 'IMAGE';
+                    break;
+                case 'y': type = 'YOUTUBE';
+                    break;
+                default:
+                    console.log('No such option');
+            }
+            var url = 'views/widget/templates/widget-'+type+'.view.client.html';
             return url;
         }
 
