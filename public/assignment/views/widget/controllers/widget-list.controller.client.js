@@ -20,7 +20,15 @@
         init();
 
         function renderWidgets(widgets) {
-            vm.widgets = widgets.data;
+            vm.widgets = widgets.data.sort(compare);
+        }
+
+        function compare(a,b) {
+            if (a.index < b.index)
+                return -1;
+            if (a.index > b.index)
+                return 1;
+            return 0;
         }
 
         function getWidgetTemplateUrl(widgetType) {
