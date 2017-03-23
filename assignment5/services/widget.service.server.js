@@ -4,7 +4,7 @@ module.exports = function (app, model) {
     app.delete("/api/widget/:widgetId", deleteWidget);
     app.put("/api/widget/:widgetId", updateWidget);
     app.get("/api/widget/:widgetId", findWidgetById);
-
+    app.put("/api/page/:pageId/widget", sortWidget);
     var pageModel = model.pageModel;
     var widgetModel = model.widgetModel;
 
@@ -152,6 +152,21 @@ module.exports = function (app, model) {
                 });
         }
         res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");///"+widgetId);
+    }
+    
+    function sortWidget(req, res) {
+        var index1 = req.query.start;
+        var index2 = req.query.end;
+        var pageId = req.params.pageId;
+        widgetModel
+            .reorderWidget(index1, index2, pageId)
+            .then(function (widget) {
+                res.send(widget);
+            }, function(err){
+                res.sendStatus(500).send(err);
+            });
+
+        // console.log([index1, index2]);
     }
 
 };

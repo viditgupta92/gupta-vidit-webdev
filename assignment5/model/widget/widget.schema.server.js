@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var widgetSchema = mongoose.Schema({
     _page: [{type: mongoose.Schema.Types.ObjectId, ref: 'MongooseWebAppPage'}],
+    index: Number,
     type: String,
     name: String,
     text: String,

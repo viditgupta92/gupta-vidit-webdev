@@ -46,7 +46,22 @@
                         // .error(function () {
                         //     vm.error = "Unable to remove user";
                         // })
+                        //.then(getWebsitesForUser);
                         .then(gotoLogin);
+            }
+        }
+
+        function getWebsitesForUser() {
+            WebsiteService
+                .findWebsiteByUser(userId)
+                .then(deleteWebsitesForUser)
+                .then(gotoLogin)
+        }
+
+        function deleteWebsitesForUser(websites) {
+            for(var website in websites.data){
+                WebsiteService
+                    .deleteWebsite(website._id)
             }
         }
 
