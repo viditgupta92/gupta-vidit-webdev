@@ -11,6 +11,7 @@ body {
     background-color:#b9def0;
 
 }
+
 .vg-container{
     position: absolute;
     top:0;
@@ -137,6 +138,8 @@ img#profile{
     width: auto ;
     max-width: 100% ;
     height: auto ;
+    margin: auto;
+    border-radius: 50%;
 }
 
 .vg-youtube{
@@ -198,3 +201,37 @@ img#profile{
     height: 100%;
 }
 
+.vg-header{
+    text-align: center;
+}
+
+.vg-card {
+    width: 350px;;
+    margin-top: 20px;
+    box-shadow: 2px 3px 3px 3px #888;
+    border-top: 10px solid green;
+    min-height: 600px;
+    padding-: 10px;
+    margin: 10px;
+}
+.mainbox{
+    font-family: calibri;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vg-index {
+    padding-top: 100px;
+}
+
+.vg-col{
+    padding-top: 200px;
+    text-justify: auto;
+}
+
+.logo {
+    width: 50px ;
+    size: auto;
+}

@@ -6,29 +6,118 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../bootstrap/css/bootstrap.css"/>
     <link href="assignment/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 </head>
 <body>
+    <!--<img id="background" class="img-responsive" src="Profile%20Pic.jpg" width="250">-->
     <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top vg-header">
-        <h1 class="vg-h1">Web Development Home Page</h1>
+        <h1 href="#" class="vg-h1">Web Development</h1>
+
+        <ul class="nav nav-tabs">
+            <li class="vg-h1">
+                <a class="navbar-brand" href="#">Home</a>
+            </li>
+            <li class="vg-h1">
+                <a class="navbar-brand" href="#">About me</a>
+            </li>
+            <li class="vg-h1">
+                <a class="navbar-brand" href="assignment/assgn_home.html">Assignment</a>
+            </li>
+            <li class="vg-h1">
+                <a class="navbar-brand" href="project/index.html">Project</a>
+            </li>
+            <li class="vg-h1">
+                <a class="navbar-brand" href="test/index.html">Test MongoDB</a>
+            </li>
+            <li class="vg-h1">
+                <a class="navbar-brand" href="https://github.com/viditgupta92/gupta-vidit-webdev">Github</a>
+            </li>
+        </ul>
     </nav>
-    <div class="container-fluid vg-container-body">
-        <h1> Vidit Gupta</h1>
-        <div>
-            <img id="profile" class="img-responsive" src="Profile%20Pic.jpg" width="250">.
+    <div class="vg-index">
+        <div class="vg-container-body col-sm-4 vg-col">
+            <div class="navbar navbar-brand">
+                <h2 class="vg-header ">
+                <legend><span class="glyphicon glyphicon-user"></span>
+                    About Me
+                </legend>
+                </h2>
+                <p>
+                    A Graduate student at Northeastern University, pursuing my Masters in Computer Science. I am passionate about coding and like solving challenging problems.
+                </p>
+                <p>
+                    I have 2 years work experience as a Software Engineer, owing to my tenure in Lam Research Corporation, a leading semiconductor wafer fabrication equipment manufacturer and service provider.
+                </p>
+                <h2 class="vg-header ">
+                <legend><span class="glyphicon glyphicon-user"></span>
+                    Work Experience
+                </legend>
+                </h2>
+                <div>
+                    <p>
+                        <img class="logo" src="lam_logo.jpg">
+                        Lam Research - Software Engineer II
+                    </p>
+                    <p>
+                        <img class="logo" src="tata-teleservices-logo.jpg">
+                        Tata Teleservices Limited - Summer Intern
+                    </p>
+                </div>
+            </div>
         </div>
-        <p>
-            This page contains all the activities for web development course.
-        </p>
-        <nav class="navbar-brand">Links</nav>
-    </div>
-    <div class="container-fluid">
-        <a href="project/index.html" class="list-group-item list-group-item-success">Project</a>
-        <a href="assignment/assgn_home.html" class="list-group-item list-group-item-info">Assignment</a>
-        <a href="test/index.html" class="list-group-item list-group-item-warning">Test MongoDB</a>
-        <a href="https://github.com/viditgupta92/gupta-vidit-webdev" class="list-group-item list-group-item-danger">
-            Your public repository at GitHub.com
-        </a>
+        <div class="mainbox vg-container-body vg-card col-sm-4">
+            <div class="navbar navbar-brand">
+                <h2 class="vg-header ">Developer</h2>
+                <img id="profile" class="img-responsive" src="Profile%20Pic.jpg" width="250">
+                <h2 class="vg-header"> Vidit Gupta</h2>
+                <p class="vg-header">Graduate Student,<br> Masters in Computer Science,<br> Northeastern University</p>
+
+            </div>
+        </div>
+
+        <div class="vg-container-body col-sm-4 vg-col">
+            <div class="navbar navbar-brand">
+                <legend><h2 class="vg-header ">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    Contact Me
+                </h2></legend>
+                <div>
+                    <a href="https://www.linkedin.com/in/viditgupta92/" target="_blank">
+                        <span class="fa fa-linkedin-square" style="font-size:48px";></span>
+                        https://www.linkedin.com/in/viditgupta92/
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.facebook.com/vidit92.gupta" target="_blank">
+                        <span class="fa fa-facebook-square" style="font-size:48px;"></span>
+                        https://www.facebook.com/vidit92.gupta
+                    </a>
+                </div>
+                <div>
+                    <a href="https://github.com/viditgupta92" target="_blank">
+                        <span class="fa fa-github" style="font-size:48px;"></span>
+                        https://github.com/viditgupta92
+                    </a>
+                </div>
+                <div>
+                    <a href="#" target="_blank">
+                        <span class="fa fa-envelope" style="font-size:48px;"></span>
+                        vidit92.gupta@gmail.com
+                    </a>
+                </div>
+                <legend><h2 class="vg-header ">
+                    <span class="glyphicon glyphicon-home"></span>
+                    Address
+                </h2></legend>
+                <div>
+                    <p class="vg-header">
+                        256 Parker Hill Ave,<br> Apt 11<br>
+                        Boston, MA-02120
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

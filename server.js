@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/public'));
 
 require ("./test/app.js")(app);
 
-require("./mongo/movies.js")(app);
+// require("./mongo/movies.js")(app);
 
 // require("./assignment/model/models.server.js");
 require("./assignment5/model/models.server.js");
