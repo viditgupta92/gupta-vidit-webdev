@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("LoginController", loginController);
 
-    function loginController($location, UserService) {
+    function loginController($location,$rootScope, UserService) {
         var vm = this;
 
         // event handlers
@@ -15,22 +15,23 @@
 
         function login(user){
             UserService
-                .findUserByCredentials(user.username, user.password)
-                .then(gotoUser);
-            // promise.success(function (response) {
-            //     var loginUser = response;
-            //     if(loginUser){
-            //         $location.url("/user/" + loginUser._id);
-            //     } else{
-            //         vm.error = "User not found";
-            //     }
-            // })
+                .login(user)
+                .then(function (user) {
+                    console.log(user);
+                    $rootScope.currentUser = user.data;
+                    $location.url("/user");
+                }, function (err) {
+                    vm.error = "User not found";
+                });
         }
 
         function gotoUser(user) {
             if(user){
-                $location.url("/user/" + user._id);
+                console.log(user);
+                $rootScope.currentUser = user.data;
+                $location.url("/user");
             } else{
+                console.log("error");
                 vm.error = "User not found";
             }
         }

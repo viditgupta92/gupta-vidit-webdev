@@ -3,11 +3,12 @@
         .module("WebAppMaker")
         .controller("profileController",profileController);
     
-    function profileController($location, $routeParams, UserService) {
+    function profileController($location, $routeParams, $rootScope, UserService) {
         var vm = this;
-        var userId = $routeParams['uid'];
+        // var userId = $routeParams['uid'];
         vm.updateUser = updateUser;
         vm.unregisterUser = unregisterUser;
+        vm.logout = logout;
 
         function init(){
             findUserById();
@@ -16,23 +17,26 @@
 
         function findUserById() {
             UserService
-                .findUserById(userId)
-                .then(renderUser);
-        }
+                // .findUserById(userId)
+                .findCurrentUser()
+                .success(function(user){
+                    if(user != '0'){
+                        vm.user = user;
+                    }
+                })
+                .error(function(){
 
-        function renderUser(user) {
-            vm.user = user;
-            console.log(vm.user);
+                });
         }
 
         function updateUser(newUser){
             UserService
-                .updateUser(userId, newUser)
+                .updateUser(newUser)
                 .then(gotoUser);
         }
 
         function gotoUser() {
-            $location.url("/user/" + userId)
+            $location.url("/user");
         }
 
         function unregisterUser(user) {
@@ -53,7 +57,7 @@
 
         function getWebsitesForUser() {
             WebsiteService
-                .findWebsiteByUser(userId)
+                .findWebsiteByUser($rootScope.currentUser._id)
                 .then(deleteWebsitesForUser)
                 .then(gotoLogin)
         }
@@ -69,6 +73,15 @@
             $location.url("/login");
         }
 
+        function logout(user) {
+            UserService
+                .logout(user)
+                .then(
+                    function(response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/");
+                    })
+        }
     }
 
 })();

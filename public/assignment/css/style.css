@@ -120,6 +120,7 @@ li a:hover{
 
 .vg-col{
     padding-top: 15px;
+    text-justify: auto;
 }
 
 .vg-container-fluid{
@@ -226,10 +227,10 @@ img#profile{
     padding-top: 100px;
 }
 
-.vg-col{
-    padding-top: 200px;
-    text-justify: auto;
-}
+/*.vg-col{*/
+    /*padding-top: 200px;*/
+    /*text-justify: auto;*/
+/*}*/
 
 .logo {
     width: 50px ;

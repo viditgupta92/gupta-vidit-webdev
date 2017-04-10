@@ -3,38 +3,32 @@
         .module("WebAppMaker")
         .controller("RegisterController", registerController);
 
-    function registerController($location, UserService) {
+    function registerController($location,$rootScope, UserService) {
         var vm = this;
 
         // event handlers
         vm.register = register;
 
-        function register(user){
+        function register(newUser){
             UserService
-                .findUserByUsername(user.username)
-                // .success(function (user) {
-                //     vm.message="Username already taken";
-                // })
-                // .error(function(err) {
-                //     UserService
-                //         .createUser(user)
-                //     $location.url("/user/"+user._id);
-                // })
-                .then(displayMessage)
-                .catch(createUser(user))
-        }
+                .findUserByUsername(newUser.username)
+                .then(function (user) {
+                    if(user){
+                        vm.message="Username already taken";
+                    }else{
+                        UserService
+                            .register(newUser)
+                            .then(gotoUser);
+                    }
 
-        function displayMessage(user) {
-                vm.message = "Username already taken";
-            }
-        function createUser(user) {
-            UserService
-                .createUser(user)
-                .then(gotoUser)
+                });
+                // .catch(createUser(user))
         }
 
         function gotoUser(user) {
-            $location.url("/user/"+user._id);
+            console.log(user);
+            $rootScope.currentUser = user.data;
+            $location.url("/user/"+user.data._id);
         }
     }
 })();

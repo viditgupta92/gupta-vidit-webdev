@@ -7,7 +7,11 @@ var userSchema = mongoose.Schema({
     email: String,
     phone: String,
     websites: [{type: mongoose.Schema.Types.ObjectId, ref: 'MongooseWebAppWebsite'}],
-    dateCreated: Date
-    },{collections: 'mongoose.webapp.user'});
+    dateCreated: Date,
+    facebook: {
+        id:    String,
+        token: String
+    }
+},{collections: 'mongoose.webapp.user'});
 
 module.exports = userSchema;
