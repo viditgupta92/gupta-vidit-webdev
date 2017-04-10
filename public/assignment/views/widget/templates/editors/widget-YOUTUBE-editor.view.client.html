@@ -1,7 +1,10 @@
 <h1>YOUTUBE Editor</h1>
 
 <label>Name</label>
-<input ng-model="model.widget.name" class="form-control">
+<input ng-model="model.widget.name" name="name" class="form-control" required>
+<span class="text-error"
+      data-ng-show="widgetEdit.submitted && widgetEdit.name.$error.required">Widget Name is required<br></span>
+
 
 <label>Url</label>
 <input ng-model="model.widget.url" class="form-control">

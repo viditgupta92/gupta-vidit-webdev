@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("WidgetEditController",WidgetEditController);
 
-    function WidgetEditController($location, $routeParams, WidgetService) {
+    function WidgetEditController($scope,$location, $routeParams, WidgetService) {
         var vm =this;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
@@ -75,16 +75,21 @@
         }
 
         function createUpdateForWidget(widgetId) {
-            if(widgetId === "h"||widgetId ==="ht"||widgetId ==="i"||widgetId ==="y"||widgetId==="tx"){
-                vm.widget.type = widgetId;
-                WidgetService
-                    .createWidget(vm.pageId,vm.widget)
-                    .then(gotoWidget);
-            }
-            else{
-                WidgetService
-                    .updateWidget(vm.widget,widgetId,vm.widget.widgetType)
-                    .then(displayWidgets);
+            if($scope.widgetEdit.$valid) {
+                if (widgetId === "h" || widgetId === "ht" || widgetId === "i" || widgetId === "y" || widgetId === "tx") {
+                    vm.widget.type = widgetId;
+                    WidgetService
+                        .createWidget(vm.pageId, vm.widget)
+                        .then(gotoWidget);
+                }
+                else {
+                    WidgetService
+                        .updateWidget(vm.widget, widgetId, vm.widget.widgetType)
+                        .then(displayWidgets);
+                }
+            }else{
+                $scope.widgetEdit.submitted = true;
+                vm.error = "Form incomplete";
             }
         }
 

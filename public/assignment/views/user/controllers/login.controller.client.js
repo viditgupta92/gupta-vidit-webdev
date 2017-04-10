@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("LoginController", loginController);
 
-    function loginController($location,$rootScope, UserService) {
+    function loginController($scope, $location,$rootScope, UserService) {
         var vm = this;
 
         // event handlers
@@ -14,15 +14,20 @@
         init();
 
         function login(user){
-            UserService
-                .login(user)
-                .then(function (user) {
-                    console.log(user);
-                    $rootScope.currentUser = user.data;
-                    $location.url("/user");
-                }, function (err) {
-                    vm.error = "User not found";
-                });
+            if($scope.accountLogin.$valid){
+                UserService
+                    .login(user)
+                    .then(function (user) {
+                        console.log(user);
+                        $rootScope.currentUser = user.data;
+                        $location.url("/user");
+                    }, function (err) {
+                        vm.error = "User not found";
+                    });
+            }else{
+                $scope.accountLogin.submitted = true;
+                vm.error = "Form incomplete";
+            }
         }
 
         function gotoUser(user) {

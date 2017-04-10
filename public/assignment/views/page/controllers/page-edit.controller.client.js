@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("PageEditController", PageEditController);
 
-    function PageEditController($routeParams, $location, PageService) {
+    function PageEditController($scope, $routeParams, $location, PageService) {
         var vm = this;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
@@ -31,9 +31,14 @@
         }
 
         function updatePage(page) {
-            PageService
-                .updatePage(vm.pageId,page)
-                .then(findAllPagesForWebsite);
+            if($scope.pageEdit.$valid) {
+                PageService
+                    .updatePage(vm.pageId, page)
+                    .then(findAllPagesForWebsite);
+            }else{
+                $scope.pageEdit.submitted = true;
+                vm.error = "Form incomplete";
+            }
         }
 
         function findAllPagesForWebsite() {

@@ -3,25 +3,35 @@
         .module("WebAppMaker")
         .controller("RegisterController", registerController);
 
-    function registerController($location,$rootScope, UserService) {
+    function registerController($scope, $location,$rootScope, UserService) {
         var vm = this;
 
         // event handlers
         vm.register = register;
 
         function register(newUser){
-            UserService
-                .findUserByUsername(newUser.username)
-                .then(function (user) {
-                    if(user){
-                        vm.message="Username already taken";
-                    }else{
-                        UserService
-                            .register(newUser)
-                            .then(gotoUser);
-                    }
+            if($scope.accountRegister.$valid){
+                if(newUser.password != newUser.verypassword){
+                    vm.message="Password and Confirm Password does not match";
+                }else {
+                    UserService
+                        .findUserByUsername(newUser.username)
+                        .then(function (user) {
+                            if (user) {
+                                vm.message = "Username already taken";
+                            } else {
+                                UserService
+                                    .register(newUser)
+                                    .then(gotoUser);
+                            }
 
-                });
+                        });
+                }
+            }else{
+                $scope.accountRegister.submitted = true;
+                vm.error = "Form incomplete";
+            }
+
                 // .catch(createUser(user))
         }
 

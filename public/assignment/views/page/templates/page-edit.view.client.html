@@ -52,18 +52,25 @@
             </li>
         </ul>
     </div>
-    <div class="col-sm-8 vg-col">
-        <div class="form-group">
-            <br>
-            <label for="name">Name</label>
-            <input ng-model="model.page.name" type="text" class="form-control" id="name" placeholder="Blog Post">
+    <form name="pageEdit" ng-class="{submitted:pageEdit.submitted}">
+        <div class="col-sm-8 vg-col">
+            <div class="form-group">
+                <br>
+                <div class="alert alert-danger" ng-show="model.error">
+                    {{model.error}}
+                </div>
+                <label for="name">Name</label>
+                <input ng-model="model.page.name" type="text" class="form-control" id="name" name="name" placeholder="Blog Post" required>
+                <span class="text-error"
+                      data-ng-show="pageEdit.submitted && pageEdit.name.$error.required">Page Name is required<br></span>
+            </div>
+            <div class="form-group">
+                <label for="description">Title</label>
+                <input ng-model="model.page.description" type="text" class="form-control" id="description" placeholder="Page Title">
+            </div>
+            <a ng-click="model.deletePage()" class="btn btn-danger btn-block">Delete</a>
         </div>
-        <div class="form-group">
-            <label for="description">Title</label>
-            <input ng-model="model.page.description" type="text" class="form-control" id="description" placeholder="Page Title">
-        </div>
-        <a ng-click="model.deletePage()" class="btn btn-danger btn-block">Delete</a>
-    </div>
+    </form>
 </div>
 
 

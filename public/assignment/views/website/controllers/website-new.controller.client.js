@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("WebsiteNewController", WebsiteNewController);
 
-    function WebsiteNewController($routeParams, $location, WebsiteService) {
+    function WebsiteNewController($scope, $routeParams, $location, WebsiteService) {
         var vm = this;
         vm.userId = $routeParams.uid;
 
@@ -22,14 +22,18 @@
         }
 
         function createWebsite(website) {
-            if(website == undefined || website.description == undefined || website.name == undefined)
-            {
-                vm.error = "Please enter complete details"
-            }
-            else {
-                WebsiteService
-                    .createWebsite(vm.userId, website)
-                    .then(listWebsites)
+            if($scope.websiteNew.$valid) {
+                if (website == undefined || website.description == undefined || website.name == undefined) {
+                    vm.error = "Please enter complete details"
+                }
+                else {
+                    WebsiteService
+                        .createWebsite(vm.userId, website)
+                        .then(listWebsites)
+                }
+            }else{
+                $scope.websiteNew.submitted = true;
+                vm.error = "Form incomplete";
             }
         }
 

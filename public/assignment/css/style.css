@@ -236,3 +236,8 @@ img#profile{
     width: 50px ;
     size: auto;
 }
+
+form.submitted .ng-invalid
+{
+    border:1px solid #f00;
+}

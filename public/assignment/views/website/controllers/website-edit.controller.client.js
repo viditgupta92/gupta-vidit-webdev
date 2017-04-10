@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("WebsiteEditController", WebsiteEditController);
 
-    function WebsiteEditController($routeParams, $location, WebsiteService) {
+    function WebsiteEditController($scope, $routeParams, $location, WebsiteService) {
         var vm = this;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
@@ -31,10 +31,14 @@
         }
 
         function updateWebsite(newWebsite) {
-            WebsiteService
-                .updateWebsite(vm.websiteId, newWebsite)
-                .then(findAllWebsitesForUser);
-
+            if($scope.websiteEdit.$valid) {
+                WebsiteService
+                    .updateWebsite(vm.websiteId, newWebsite)
+                    .then(findAllWebsitesForUser);
+            }else{
+                $scope.websiteEdit.submitted = true;
+                vm.error = "Form incomplete";
+            }
         }
 
         function findAllWebsitesForUser(websites) {

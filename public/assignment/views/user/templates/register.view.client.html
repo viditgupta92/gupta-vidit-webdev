@@ -11,53 +11,94 @@
         {{model.message}}
     </div>
 
-    <label for="username">Username</label>
-    <input ng-model="user.username"
-           id="username"
-           type="text"
-           class="form-control"
-           placeholder="username"/>
-    <label for="password">Password</label>
-    <input ng-model="user.password"
-           id="password"
-           type="password"
-           class="form-control"
-           placeholder="password"/>
-    <label for="very password">Confirm Password</label>
-    <input ng-model="user.verypassword"
-           id="very password"
-           type="password"
-           class="form-control"
-           placeholder="verify password"/>
-    <label for="firstName">First Name</label>
-    <input ng-model="user.firstName"
-           id="firstName"
-           type="text"
-           class="form-control"
-           placeholder="First Name"/>
-    <label for="lastName">Last Name</label>
-    <input ng-model="user.lastName"
-           id="lastName"
-           type="text"
-           class="form-control"
-           placeholder="Last Name"/>
-    <label for="email">Email</label>
-    <input ng-model="user.email"
-           id="email"
-           type="email"
-           class="form-control"
-           placeholder="Email"/>
-    <label for="phone">Phone</label>
-    <input ng-model="user.phone"
-           id="phone"
-           type="number"
-           class="form-control"
-           placeholder="Number"/>
-    <a ng-click="model.register(user)" class="btn btn-primary btn-block">
-        Register
-    </a>
-    <a class="btn btn-danger  btn-block"
-       href="#/login">
-        Cancel
-    </a>
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+
+    <form name="accountRegister" ng-class="{submitted:accountRegister.submitted}">
+        <label for="username">Username</label>
+        <input ng-model="user.username"
+               id="username"
+               name="username"
+               type="text"
+               class="form-control"
+               placeholder="username"
+               required
+        />
+        <span class="text-error"
+              data-ng-show="accountRegister.submitted && accountRegister.username.$error.required">Username is required<br></span>
+        <label for="password">Password</label>
+        <input ng-model="user.password"
+               id="password"
+               name="password"
+               type="password"
+               class="form-control"
+               placeholder="password"
+               required
+        />
+        <span class="text-error"
+              data-ng-show="accountRegister.submitted && accountRegister.password.$error.required">Password is required<br></span>
+        <label for="verypassword">Confirm Password</label>
+        <input ng-model="user.verypassword"
+               id="verypassword"
+               name="verypassword"
+               type="password"
+               class="form-control"
+               placeholder="verify password"
+               required
+        />
+        <span class="text-error"
+              data-ng-show="accountRegister.submitted && accountRegister.verypassword.$error.required">Verify Password is required<br></span>
+        <label for="firstName">First Name</label>
+        <input ng-model="user.firstName"
+               id="firstName"
+               name="firstName"
+               type="text"
+               class="form-control"
+               placeholder="First Name"
+               required
+        />
+        <span class="text-error"
+              data-ng-show="accountRegister.submitted && accountRegister.firstName.$error.required">First Name is required<br></span>
+        <label for="lastName">Last Name</label>
+        <input ng-model="user.lastName"
+               id="lastName"
+               name="lastName"
+               type="text"
+               class="form-control"
+               placeholder="Last Name"
+               required
+        />
+        <span class="text-error"
+              data-ng-show="accountRegister.submitted && accountRegister.lastName.$error.required">Last Name is required<br></span>
+        <label for="email">Email</label>
+        <input ng-model="user.email"
+               id="email"
+               name="email"
+               type="email"
+               class="form-control"
+               placeholder="Email"
+               required
+        />
+        <span class="text-error"
+              data-ng-show="accountRegister.submitted && accountRegister.email.$error.required">Email is required<br></span>
+        <label for="phone">Phone</label>
+        <input ng-model="user.phone"
+               id="phone"
+               name="phone"
+               type="number"
+               class="form-control"
+               placeholder="Number"
+               required
+        />
+        <span class="text-error"
+              data-ng-show="accountRegister.submitted && accountRegister.phone.$error.required">Phone is required<br></span>
+        <a ng-click="model.register(user)" class="btn btn-primary btn-block">
+            Register
+        </a>
+        <a class="btn btn-danger  btn-block"
+           href="#/login">
+            Cancel
+        </a>
+    </form>
 </div>

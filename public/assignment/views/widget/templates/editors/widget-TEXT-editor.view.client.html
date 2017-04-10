@@ -1,7 +1,9 @@
 <h1>TEXT Editor</h1>
 
 <label>Text</label>
-<input ng-model="model.widget.text" class="form-control"/>
+<input ng-model="model.widget.text" name="name" class="form-control" required/>
+<span class="text-error"
+      data-ng-show="widgetEdit.submitted && widgetEdit.name.$error.required">Widget Name is required<br></span>
 
 <label>Rows</label>
 <input ng-model="model.widget.rows" class="form-control" type="number"/>

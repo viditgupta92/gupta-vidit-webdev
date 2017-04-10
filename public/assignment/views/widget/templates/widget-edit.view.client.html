@@ -20,9 +20,15 @@
     </div>
 </nav>
 
-<div class="container-fluid"
-         ng-include="model.getEditorTemplateUrl(model.widget.type)">
-</div>
+<form name="widgetEdit" ng-class="{submitted:widgetEdit.submitted}">>
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+    <div class="container-fluid"
+             ng-include="model.getEditorTemplateUrl(model.widget.type)">
+    </div>
+</form>
+
 <div class="container-fluid">
     <a ng-click="model.deleteWidget()" class="btn btn-danger btn-block">Delete
         </a>

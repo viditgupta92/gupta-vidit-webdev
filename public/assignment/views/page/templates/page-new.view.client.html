@@ -52,21 +52,25 @@
             </li>
         </ul>
     </div>
-    <div class="col-sm-8 vg-col">
-        <div class="form-group">
-            <br>
-            <div class="alert alert-danger" ng-show="model.error">
-                {{model.error}}
+    <form name="pageNew" ng-class="{submitted:pageNew.submitted}">
+        <div class="col-sm-8 vg-col">
+            <div class="form-group">
+                <br>
+                <div class="alert alert-danger" ng-show="model.error">
+                    {{model.error}}
+                </div>
+                <label for="name">Name</label>
+                <input ng-model="page.name" class="form-control" id="name" name="name" placeholder="Page Name" required>
+                <span class="text-error"
+                      data-ng-show="pageNew.submitted && pageNew.name.$error.required">Page Name is required<br></span>
             </div>
-            <label for="name">Name</label>
-            <input ng-model="page.name" class="form-control" id="name" placeholder="Page Name">
+            <div class="form-group">
+                <label for="description">Title</label>
+                <input ng-model="page.description" class="form-control" id="description" placeholder="Page Title">
+            </div>
+            <a ng-click="model.createPage(page)" class="btn btn-primary btn-block">Create</a>
         </div>
-        <div class="form-group">
-            <label for="description">Title</label>
-            <input ng-model="page.description" class="form-control" id="description" placeholder="Page Title">
-        </div>
-        <a ng-click="model.createPage(page)" class="btn btn-primary btn-block">Create</a>
-    </div>
+    </form>
 </div>
 
 
