@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "angular-ui-router": "^0.4.2",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.3",
@@ -21,7 +22,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jose G. Annunziato",
