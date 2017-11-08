@@ -1,0 +1,49 @@
+<nav class="navbar navbar-fixed-top navbar-default">
+    <div class="container-fluid">
+        NFL App
+    </div>
+</nav>
+<div class="container-fluid">
+    <h3 class="text-center season">Season: {{model.season}}</h3>
+    <div class="weeks">
+        <row ng-repeat="i in model.week">
+            <button ng-click="model.getWeekStats(model.season, i)">Week {{i}}</button>
+        </row>
+    </div>
+    <div ng-repeat="(conference, data) in model.conferences">
+        <h3 class="text-center season">{{conference}}</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Team</th>
+                <th>Info</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Ties</th>
+                <th>Points For</th>
+                <th>Points Against</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="team in data">
+            <tr>
+                <td>
+                    <img class="logo" ng-src={{getTeamLogo(team.Team)}}>
+                </td>
+                <td>{{team.Name}}</td>
+                <td>
+                    <button ng-click="model.getTeamNews(team.Team)">News</button>
+                    <button ng-click="model.getTeam(team.Team)">Players</button>
+                </td>
+                <td>{{team.Wins}}</td>
+                <td>{{team.Losses}}</td>
+                <td>{{team.Ties}}</td>
+                <td>{{team.PointsFor}}</td>
+                <td>{{team.PointsAgainst}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom"></nav>

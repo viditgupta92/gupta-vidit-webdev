@@ -1,0 +1,297 @@
+input.form-control {
+    margin-bottom: 5px;
+}
+
+body {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Oswald', sans-serif;
+    background-color: #b9def0;
+
+}
+
+.vg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 35px;
+    margin-bottom: 53px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.vg-container-widget {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 35px;
+    margin-bottom: 53px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.navbar-default {
+    background-color: darkturquoise;
+    font-family: 'Oswald', sans-serif;
+    font-size: large;
+}
+
+.vg-h1 {
+    color: white;
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+#login {
+    text-align: center;
+}
+
+#website-list {
+    padding-top: 64px;
+}
+
+.vg-toolbar {
+    position: absolute;
+    right: 15px;
+    background-color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 5px;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+head#assignment-home {
+    text-align: center;
+}
+
+.vg-container-body {
+    padding-top: 60px;
+}
+
+.vg-header {
+    text-align: center;
+}
+
+.vg-head {
+    margin-right: 10px;
+}
+
+.vg-glyph {
+    margin-right: 30px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+    font-family: Georgia, serif;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: cornflowerblue;
+    font-family: Georgia, serif;
+}
+
+.navbar .glyphicon {
+    color: white;
+}
+
+.glyphicon:hover {
+    color: cornflowerblue;
+}
+
+li a:hover {
+    text-decoration: none;
+}
+
+.vg-body {
+    margin-left: 0px;
+}
+
+.vg-form {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.vg-col {
+    padding-top: 15px;
+    text-justify: auto;
+}
+
+.vg-container-fluid {
+    padding-top: 15px;
+}
+
+.vg-list-group {
+    padding-left: 10px;
+}
+
+.vg-list-head {
+    margin-right: 2px;
+}
+
+img#profile {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.vg-youtube {
+    right: 0px;
+}
+
+.vg-ul {
+    margin-top: inherit;
+}
+
+.vg-ul-list {
+    margin-top: 20px;
+}
+
+/*ratings*/
+.star-rating {
+    font-size: 0;
+}
+
+.star-rating__wrap {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.star-rating__wrap:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.star-rating__ico {
+    float: right;
+    padding-left: 2px;
+    cursor: pointer;
+    color: #FFB300;
+}
+
+.star-rating__ico:last-child {
+    padding-left: 0;
+}
+
+.star-rating__input {
+    display: none;
+}
+
+.star-rating__ico:hover:before,
+.star-rating__ico:hover ~ .star-rating__ico:before,
+.star-rating__input:checked ~ .star-rating__ico:before {
+    content: "\f005";
+}
+
+.youtube-widget {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.youtube-widget iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.vg-header {
+    text-align: center;
+}
+
+.vg-card {
+    width: 350px;;
+    margin-top: 20px;
+    box-shadow: 2px 3px 3px 3px #888;
+    border-top: 10px solid green;
+    min-height: 600px;
+    padding-: 10px;
+    margin: 10px;
+}
+
+.mainbox {
+    font-family: calibri;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vg-index {
+    padding-top: 100px;
+}
+
+/*.vg-col{*/
+/*padding-top: 200px;*/
+/*text-justify: auto;*/
+/*}*/
+
+.logo {
+    width: 50px;
+    size: auto;
+}
+
+form.submitted .ng-invalid {
+    border: 1px solid #f00;
+}
+
+.vg-xlarge {
+    font-size: 48px !important;
+}
+
+.vg-col-work1 {
+    margin-left: 100px;
+}
+
+.vg-col-work2 {
+    margin-left: 300px;
+}
+
+.vg-font {
+    font-size: medium;
+}
+
+.vg-a-margin {
+    margin-left: 20px;
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent
+    }
+    50% {
+        border-color: orange;
+    }
+}

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var pageSchema = require('./page.schema.server.js');
-var pageModel = mongoose.model('MongooseWebAppPage', pageSchema);
+var pageModel = mongoose.model('MongooseWebAppPageFinal', pageSchema);
 var q = require('q');
 
 pageModel.createPage = createPage;

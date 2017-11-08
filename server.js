@@ -24,16 +24,9 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
 require ("./test/app.js")(app);
-
-// require("./mongo/movies.js")(app);
-
-// require("./assignment/model/models.server.js");
-require("./assignment5/model/models.server.js");
-
-// var assignment = require("./assignment/app.js");
-var assignment = require("./assignment5/app.js");
-assignment(app);
-
+require("./assignment4/app.js")(app);
+require("./assignment5/app.js")(app);
+require("./assignment6/app.js")(app);
 var port = process.env.PORT || 3000;
 
 app.listen(port);

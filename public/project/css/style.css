@@ -1,0 +1,24 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.navbar {
+    padding-top: 10px;
+    font-size: large;
+    font-style: inherit;
+}
+
+.weeks {
+    text-align: center;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+}
+
+.score {
+    margin: 15px;
+    height: 55px;
+}

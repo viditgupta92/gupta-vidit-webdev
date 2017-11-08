@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var userSchema = require('./user.schema.server.js');
-var userModel = mongoose.model('MongooseWebAppUser', userSchema);
+var userModel = mongoose.model('MongooseWebAppUserFinal', userSchema);
 var q = require('q');
 
 userModel.createUser = createUser;

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
+    <h1 class="vg-h1">Register</h1>
+</nav>
+
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+
+    <label for="username">Username</label>
+    <input ng-model="user.username"
+           id="username"
+           type="text"
+           class="form-control"
+           placeholder="username"/>
+    <label for="password">Password</label>
+    <input ng-model="user.password"
+           id="password"
+           type="password"
+           class="form-control"
+           placeholder="password"/>
+    <label for="very password">Confirm Password</label>
+    <input ng-model="user.verypassword"
+           id="very password"
+           type="password"
+           class="form-control"
+           placeholder="verify password"/>
+    <a ng-click="model.register(user)" class="btn btn-primary btn-block">
+        Register
+    </a>
+    <a class="btn btn-danger  btn-block"
+       href="#/login">
+        Cancel
+    </a>
+</div>

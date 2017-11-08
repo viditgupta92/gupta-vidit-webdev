@@ -1,0 +1,101 @@
+<nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="col-sm-4 ">
+            <div class="navbar-text pull-left hidden-xs">
+                <a href="#/user/{{model.userId}}/website">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header hidden-xs">
+                <a class="navbar-brand">
+                    Websites
+                </a>
+            </div>
+
+            <div class="navbar-text pull-right hidden-xs vg-glyph">
+                <a href="#/user/{{model.userId}}/website/new">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="navbar-text pull-left visible-xs">
+                <a href="#/user/{{model.userId}}/website">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updateWebsite(model.website)">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">
+                    Edit Website
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="row container-fluid vg-container">
+    <div class="col-sm-4 vg-col hidden-xs">
+        <ul class="container-fluid list-unstyled vg-ul-list">
+            <li class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-11 col-sm-6">
+                        Name
+                        <span class="glyphicon glyphicon-triangle-top"></span>
+                    </div>
+                    <div class="col-xs-1 pull-right">
+                        <a href="#/user/{{model.userId}}/website/new">
+                        <span class="glyphicon glyphicon-plus">
+                        </span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-11 col-sm-6">
+                        {{website.name}}
+                    </div>
+                    <div class="col-xs-1 pull-right">
+                        <a href="#/user/{{model.userId}}/website/{{website._id}}">
+                        <span class="glyphicon glyphicon-cog">
+                        </span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-8 vg-col">
+        <div class="form-group">
+            <br>
+            <label for="name">Website Name</label>
+            <input ng-model="model.website.name" type="text" class="form-control" id="name" placeholder="Website Name"
+                   value="Blogger">
+        </div>
+        <div class="form-group">
+            <label for="website-description">Website Description</label>
+            <textarea ng-model="model.website.description"
+                      class="form-control"
+                      id="website-description"
+                      rows="4"
+                      placeholder="Website Description">Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com). A user can have up to 100 blogs per account.</textarea>
+        </div>
+        <a ng-click="model.deleteWebsite()" class="btn btn-danger btn-block">Delete</a>
+    </div>
+</div>
+
+<nav class="navbar navbar-inverse bg-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>

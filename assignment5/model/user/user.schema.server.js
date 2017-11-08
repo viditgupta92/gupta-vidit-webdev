@@ -6,7 +6,7 @@ var userSchema = mongoose.Schema({
     lastName: String,
     email: String,
     phone: String,
-    websites: [{type: mongoose.Schema.Types.ObjectId, ref: 'MongooseWebAppWebsite'}],
+    websites: [{type: mongoose.Schema.Types.ObjectId, ref: 'MongooseWebAppWebsiteFinal'}],
     dateCreated: Date,
     facebook: {
         id:    String,

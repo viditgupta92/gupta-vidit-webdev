@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
+    <h1 class="vg-h1">Login</h1>
+</nav>
+
+<div class="container-fluid">
+    <br>
+    <br>
+    <br>
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <form>
+        <label for="username">Username</label>
+        <input ng-model="user.username"
+               id="username"
+               type="text"
+               class="form-control"
+               placeholder="username"/>
+        <label for="password">Password</label>
+        <input ng-model="user.password"
+               id="password"
+               type="password"
+               class="form-control"
+               placeholder="password"/>
+
+        <a class="btn btn-primary btn-block"
+           ng-click="model.login(user)">Login</a>
+        <a class="btn btn-success btn-block"
+           href="#/register">Register</a>
+        <!--<div class="star-rating">-->
+        <!--<div class="star-rating__wrap">-->
+        <!--<input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">-->
+        <!--<label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5" title="5 out of 5 stars"></label>-->
+        <!--<input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">-->
+        <!--<label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4" title="4 out of 5 stars"></label>-->
+        <!--<input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">-->
+        <!--<label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3" title="3 out of 5 stars"></label>-->
+        <!--<input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">-->
+        <!--<label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2" title="2 out of 5 stars"></label>-->
+        <!--<input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">-->
+        <!--<label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 out of 5 stars"></label>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<label for="input-1" class="control-label">Rate This</label>-->
+        <!--<input id="input-id" name="input-name" type="number" class="rating" min=1 max=10 step=2 data-size="lg" data-rtl="true">-->
+        <!--<input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="1">-->
+    </form>
+    <!--<script>-->
+    <!--jQuery(document).ready(function () {-->
+    <!--$("#input-id").rating();});-->
+    <!--</script>-->
+</div>
