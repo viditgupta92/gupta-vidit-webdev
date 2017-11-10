@@ -248,16 +248,22 @@ form.submitted .ng-invalid
 
 .vg-col-work1
 {
-    margin-left: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .vg-col-work2
 {
-    margin-left: 300px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .vg-font{
     font-size: medium;
+}
+
+.vg-font-description{
+    font-size: 13px;
 }
 
 .vg-a-margin

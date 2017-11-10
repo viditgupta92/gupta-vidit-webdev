@@ -2,14 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link href="css/bootstrap.css"/>
     <link rel="stylesheet" href="assignment/css/style.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>Vidit Gupta: Skilled Programmer</title>
 </head>
 <style>
@@ -66,9 +65,11 @@
         <a href="#home" class="w3-bar-item w3-button">HOME</a>
         <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
         <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+        <a href="#education" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> EDUCATION</a>
+        <a href="#workexp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> WORK EXPERIENCE</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
         <a href="assignment/assgn_home.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-book"></i> ASSIGNMENT</a>
-        <a href="https://speak-mean.herokuapp.com" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-institution"></i> PROJECT</a>
+        <a href="project/#/home" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-institution"></i> PROJECT</a>
         <a href="https://github.com/viditgupta92/gupta-vidit-webdev" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-github"></i> GITHUB</a>
         </a>
     </div>
@@ -77,9 +78,11 @@
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
         <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
         <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+        <a href="#education" class="w3-bar-item w3-button" onclick="toggleFunction()">EDUCATION</a>
+        <a href="#workexp" class="w3-bar-item w3-button" onclick="toggleFunction()">WORK EXPERIENCE</a>
         <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
         <a href="assignment/assgn_home.html" class="w3-bar-item w3-button" onclick="toggleFunction()">ASSIGNMENT</a>
-        <a href="https://speak-mean.herokuapp.com" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECT</a>
+        <a href="project/#/home" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECT</a>
         <a href="https://github.com/viditgupta92/gupta-vidit-webdev" class="w3-bar-item w3-button" onclick="toggleFunction()">GITHUB</a>
     </div>
 </div>
@@ -120,13 +123,153 @@
     </div>
 </div>
 
+<!-- Container (Education Section) -->
+<div class="w3-content w3-container w3-padding-64" id="education">
+    <h3 class="w3-center">EDUCATION</h3>
+    <p class="vg-font w3-center"><em>I pursued my studies in the below universities.</em></p><br>
+
+    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+    <div class="w3-row-padding">
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">
+                <a href="http://www.northeastern.edu">
+                    <img src="images/neu_logo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
+                </a>
+            </h4>
+        </div>
+        <div>
+            <h4>
+                <b>Masters in Computer Science: Sept'16-Dec'18(expected)</b>
+            </h4>
+            <p class="vg-font"><em>GPA: 3.5/4</em></p>
+            <p class="vg-font"><em>Courses: Program Design Paradigms; Information Retrieval; Algorithms; Web Development</em></p>
+        </div>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">
+                <a href="http://www.vit.ac.in/">
+                    <img src="images/vit_logo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
+                </a>
+            </h4>
+        </div>
+        <div>
+            <h4>
+                <b>Bachelors in Electronics and Communication Engineering: Jul'10-May'14</b>
+            </h4>
+            <p class="vg-font"><em>GPA: 8.7/10</em></p>
+            <p class="vg-font"><em>Related Courses: Data structures and Algorithms; Computer Organization and Architecture; Wireless & Mobile Communication</em></p>
+        </div>
+    </div>
+</div>
+
+<!-- Container (Work Experience Section) -->
+<div class="w3-content w3-container w3-padding-64" id="workexp">
+    <h3 class="w3-center">WORK EXPERIENCE</h3>
+    <p class="vg-font w3-center"><em>I was grateful to work in the below companies.</em></p><br>
+
+    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+    <div class="w3-row-padding">
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">
+                <a href="https://www.lamresearch.com">
+                    <img src="images/lam_logo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
+                </a>
+            </h4>
+        </div>
+        <div>
+            <h4>
+               <b>Software Developer Intern: May'17-Dec'17</b>
+            </h4>
+            <p class="vg-font"><em>Working on new software requests for Sabre 3D deposition tool based on customer requests.</em></p>
+            <p class="vg-font"><em>Designed a Patch Creator utility, which is a windows desktop application for creating software patches for releases.</em></p>
+            <p class="vg-font"><em>Implemented Configurable Companion Wafer storage project.</em></p>
+            <p class="vg-font"><em>Back-end development in C,C++, Java and front-end in C#.</em></p>
+        </div>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">
+                <a href="http://www.northeastern.edu">
+                    <img src="images/neu_logo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
+                </a>
+            </h4>
+        </div>
+        <div>
+            <h4>
+                <b>Graduate Teaching Assistant, Discrete Structures: Jan'17-Apr'17</b>
+            </h4>
+            <p class="vg-font"><em>Guided undergraduate students and helped instructor by taking lectures, recitations, grading assignments and exam papers.</em></p>
+        </div>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">
+                <a href="https://www.lamresearch.com">
+                    <img src="images/lam_logo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
+                </a>
+            </h4>
+        </div>
+        <div>
+            <h4>
+                <b>Software Engineer II: Jul'14-Aug'16</b>
+            </h4>
+            <p class="vg-font-description"><em>Implemented several new projects using SDLC in C, C++, C# and Unix/Linux for electro fill deposition tool, Sabre 3D.</em></p>
+            <p class="vg-font-description"><em>Proficient in requirement collection, designing and implementing of the control system software and white box unit testing.</em></p>
+            <p class="vg-font-description"><em>Resolved critical software issues faced in client’s wafer fabrication facility which hampered production, by debugging code and improving the architecture design and in turn reducing the UI response time.</em></p>
+            <p class="vg-font-description"><em>Trained for 2 weeks at client’s wafer fabrication facility in Taiwan for product knowledge and gaining hands-on experience.</em></p>
+        </div>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">
+                <a href="https://www.tatateleservices.com">
+                    <img src="images/tata_logo.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
+                </a>
+            </h4>
+        </div>
+        <div>
+            <h4>
+                <b style="left: auto">Summer Intern:</b><b style="right: auto">May'12-June'12</b>
+            </h4>
+            <p class="vg-font"><em>Implemented project “Basics of Switching Technology”, collaborating the voice and data transmission techniques used by the OMC (Operations, Maintenance & Control) department, tracing call location requests and handling customer complaints.</em></p>
+        </div>
+    </div>
+
+</div>
+
+
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
     <h3 class="w3-center">MY WORK</h3>
     <p class="vg-font w3-center"><em>Here are some of my latest work.<br> Click on the images to make them bigger</em></p><br>
 
     <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-    <div class="w3-row-padding w3-center">
+    <div class="w3-row-padding w3-center visible-xs">
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">WEB APP MAKER</h4>
+            <a href="assignment/assgn_home.html">
+                <img src="images/assignment.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
+            </a>
+            <p class="vg-font"><em>A single page MEAN stack application to allow users to create websites, pages and widgets following responsive web design.</em></p>
+        </div>
+        <div class="col-sm-6 w3-col m3">
+            <h4 class="w3-center">NFL APP</h4>
+            <a href="project/#/home">
+                <img src="images/football-clip-art.png" style="width:100%" onclick="onClick(this)"
+                     class="w3-hover-opacity" alt="NFLApp">
+            </a>
+            <p class="vg-font"><em>A MEAN stack web application that gives upto-date information on the current NFL
+                season using MVC architecture.</em></p>
+            <!--<p class="vg-font"><em>A MEAN stack web application that connects people willing to learn a new foreign language with the native speakers using MVC architecture and CRUD operations.</em></p>-->
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-center hidden-xs">
         <div class="vg-col-work1 col-sm-6 w3-col m3">
             <h4 class="w3-center">WEB APP MAKER</h4>
             <a href="assignment/assgn_home.html">
