@@ -18,9 +18,9 @@
     <div class="list-group container-fluid vg-container-body">
         <br>
         <br>
-        <a class="list-group-item list-group-item-success">
+        <a href="https://github.com/viditgupta92/AndroidStudioProjects/tree/master/Portfolio" class="list-group-item list-group-item-success">
             <h4><b>Portfolio</b></h4>
-            <img src="../../images/app_portfolio_1.png" style="width:15%">
+            <img src="../../images/app_portfolio_1.png" style="width:15%" onclick="onClick(this)" class="w3-hover-opacity" alt="WebAppMaker">
             <img src="../../images/app_portfolio_2.png" style="width:15%">
             <img src="../../images/app_portfolio_3.png" style="width:15%">
             <img src="../../images/app_portfolio_4.png" style="width:15%">
@@ -54,5 +54,14 @@
             <img src="../../images/app_cookie.png" style="width:15%">
         </a>
     </div>
+<script>
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+</script>
 </body>
 </html>

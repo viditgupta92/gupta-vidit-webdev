@@ -62,11 +62,12 @@
         <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
            onclick="toggleFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i>
         </a>
-        <a href="#home" class="w3-bar-item w3-button">HOME</a>
+        <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i>HOME</a>
         <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+        <a href="https://drive.google.com/open?id=0ByRljqTry50WemtfdjNFSkhFdGs" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-vcard-o"></i> RESUME</a>
         <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-        <a href="#education" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> EDUCATION</a>
-        <a href="#workexp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> WORK EXPERIENCE</a>
+        <a href="#education" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-mortar-board"></i> EDUCATION</a>
+        <a href="#workexp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-suitcase"></i> WORK EXPERIENCE</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
         <a href="assignment/assgn_home.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-book"></i> ASSIGNMENT</a>
         <a href="project/#/home" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-institution"></i> PROJECT</a>
@@ -77,6 +78,7 @@
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
         <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+        <a href="https://drive.google.com/open?id=0ByRljqTry50WemtfdjNFSkhFdGs" class="w3-bar-item w3-button"onclick="toggleFunction()">RESUME</a>
         <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
         <a href="#education" class="w3-bar-item w3-button" onclick="toggleFunction()">EDUCATION</a>
         <a href="#workexp" class="w3-bar-item w3-button" onclick="toggleFunction()">WORK EXPERIENCE</a>
@@ -88,12 +90,21 @@
 </div>
 
 <!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+<div class="w3-hide-small bgimg-1 w3-display-container w3-opacity-min" id="home">
     <div class="w3-display-middle" style="white-space:nowrap;">
         <span class="w3-center w3-padding-large w3-black vg-xlarge w3-wide w3-animate-opacity">VIDIT GUPTA </span>
     </div>
     <!--<div class="w3-display-middle" style="white-space:nowrap;">-->
-        <!--<span class="w3-center w3-padding-large w3-black vg-xlarge w3-wide w3-animate-opacity">SOFTWARE ENGINEER </span>-->
+    <!--<span class="w3-center w3-padding-large w3-black vg-xlarge w3-wide w3-animate-opacity">SOFTWARE ENGINEER </span>-->
+    <!--</div>-->
+</div>
+
+<div class="bgimg-1 w3-display-container w3-opacity-min">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-black w3-wide w3-animate-opacity">VIDIT GUPTA </span>
+    </div>
+    <!--<div class="w3-display-middle" style="white-space:nowrap;">-->
+    <!--<span class="w3-center w3-padding-large w3-black vg-xlarge w3-wide w3-animate-opacity">SOFTWARE ENGINEER </span>-->
     <!--</div>-->
 </div>
 
@@ -114,6 +125,13 @@
     <!--<button class="w3-button w3-light-grey w3-padding-large w3-margin-top">-->
         <!--<i src="https://www.linkedin.com/in/viditgupta92/treasury/summary/?entityUrn=urn%3Ali%3Afs_treasuryMedia%3A(ACoAAAkzVUIBtrHNo8oj3frtnDPUcZoknXiFUsc%2C1488642414688)" class="fa fa-download"></i> Download Resume-->
     <!--</button>-->
+    <div id="resume">
+        <button class="btn btn-default btn-lg center-block">
+            <a href="https://drive.google.com/open?id=0ByRljqTry50WemtfdjNFSkhFdGs">
+                RESUME
+            </a>
+        </button>
+    </div>
 </div>
 
 <!-- Second Parallax Image with Portfolio Text -->
