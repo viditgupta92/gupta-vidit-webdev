@@ -248,14 +248,25 @@ form.submitted .ng-invalid
 
 .vg-col-work1
 {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .vg-col-work2
 {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.vg-col-work3
+{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.vg-android-pad
+{
+    padding-top: 20px;
 }
 
 .vg-font{
