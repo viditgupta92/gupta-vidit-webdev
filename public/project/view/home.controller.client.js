@@ -18,7 +18,8 @@
 
         function init() {
             FootballService
-                .currentSeason()
+                // .currentSeason()
+                .lastSeason()
                 .then(function (response) {
                     vm.season = response.data;
                     season = vm.season;
@@ -34,7 +35,8 @@
             FootballService
                 .currentWeek()
                 .then(function (response) {
-                    vm.current_week = response.data;
+                    // vm.current_week = response.data;
+                    vm.current_week = 17;
                     for (var i = 1; i <= vm.current_week; i++) {
                         (vm.week).push(i);
                     }

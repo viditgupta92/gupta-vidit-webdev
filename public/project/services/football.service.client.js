@@ -9,6 +9,7 @@
     function cricketService($http) {
         var api = {
             "currentSeason": currentSeason,
+            "lastSeason": lastSeason,
             "currentWeek": currentWeek,
             "standings": standings,
             "getWeekStats": getWeekStats,
@@ -23,6 +24,14 @@
                 headers: {'Ocp-Apim-Subscription-Key': '466e217389a64464bc4a97b12d3e090a'},
                 type: "GET",
                 url: 'https://api.fantasydata.net/v3/nfl/stats/JSON/CurrentSeason'
+            });
+        }
+
+        function lastSeason() {
+            return $http({
+                headers: {'Ocp-Apim-Subscription-Key': '466e217389a64464bc4a97b12d3e090a'},
+                type: "GET",
+                url: 'https://api.fantasydata.net/v3/nfl/scores/JSON/LastCompletedSeason'
             });
         }
 

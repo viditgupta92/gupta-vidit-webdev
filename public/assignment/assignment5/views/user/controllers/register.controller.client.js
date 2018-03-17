@@ -12,14 +12,6 @@
         function register(user) {
             UserService
                 .findUserByUsername(user.username)
-                // .success(function (user) {
-                //     vm.message="Username already taken";
-                // })
-                // .error(function(err) {
-                //     UserService
-                //         .createUser(user)
-                //     $location.url("/user/"+user._id);
-                // })
                 .then(displayMessage)
                 .catch(createUser(user))
         }
