@@ -20,7 +20,7 @@
                     .then(function (user) {
                         console.log(user);
                         $rootScope.currentUser = user.data;
-                        $location.url("/user");
+                        $location.url("/user/" + user.data._id);
                     }, function (err) {
                         vm.error = "User not found";
                     });
